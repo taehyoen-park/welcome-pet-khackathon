@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:elevation="8dp"
+    android:layout_gravity="center"
+    android:layout_width="350dp"
+    android:layout_height="530dp"
+    android:background="#fff"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="92dp"
+        android:text="REGISTER"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:textColor="#90AACB"
+        />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        app:boxBackgroundColor="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="30dp">
+
+        <EditText
+            android:id="@+id/register_ID"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:hint="아이디"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        app:boxBackgroundColor="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="30dp">
+
+        <EditText
+            android:id="@+id/register_PW"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:hint="비밀번호"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        app:boxBackgroundColor="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="240dp"
+        android:layout_marginLeft="30dp">
+
+        <EditText
+            android:id="@+id/register_name"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:hint="이름"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        app:boxBackgroundColor="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="310dp"
+        android:layout_marginLeft="30dp">
+
+        <EditText
+            android:id="@+id/register_email"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:hint="이메일"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        app:boxBackgroundColor="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="380dp"
+        android:layout_marginLeft="30dp">
+
+        <EditText
+            android:id="@+id/register_phone"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:hint="전화번호"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login"
+        android:layout_width="180dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="460dp"
+        android:background="@drawable/register_button_bk"
+        android:text="Next"
+        android:textColor="#fff"
+        android:textSize="17sp" />
+
+
+
+</androidx.cardview.widget.CardView>
