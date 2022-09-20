@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
+        transaction.replace(R.id.frameLayout_main, fragment_userinfo).commitAllowingStateLoss();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     transaction.replace(R.id.frameLayout_main, fragment_experience).commitAllowingStateLoss();
                     break;
                 case R.id.HomeItem:
-                    transaction.replace(R.id.frameLayout_main, fragment_community).commitAllowingStateLoss();
+                    transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
                     break;
                 case R.id.CommunityItem:
                     transaction.replace(R.id.frameLayout_main, fragment_community).commitAllowingStateLoss();

@@ -10,23 +10,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Welcomepetkhackathon">
         <activity
-            android:name=".survey"
+            android:name=".Alarm.Destination"
             android:exported="false" />
         <activity
-            android:name=".Userinput"
+            android:name=".Start_survey.survey2"
+            android:exported="false" />
+        <activity
+            android:name=".Start_survey.survey"
+            android:exported="false" />
+        <activity
+            android:name=".Auth.Userinput"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".Auth.Login"
             android:exported="true">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".Alarm.AlarmReciver" />
     </application>
 
 </manifest>
