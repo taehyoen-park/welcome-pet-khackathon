@@ -1,9 +1,653 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".survey">
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FEF1E6"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="165dp"
+                    android:layout_marginLeft="165dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="166dp"
+                    android:layout_marginBottom="40dp"
+                    android:src="@drawable/corgi" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="-11dp"
+                    android:fontFamily="@font/font_outline"
+                    android:gravity="center"
+                    android:text="---설문조사---"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="#FFB085" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="10dp"
+                android:text="당신에 대해 알고싶어요! 설문조사를 진행해주세요! (10문항)"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="380dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="7dp"
+                android:backgroundTint="#ffffff"
+                android:focusable="true"
+                app:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="01.당신은 반려견을 키울 형편이 되나요?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="네"
+                            android:textSize="17dp"/>
+
+                        <SeekBar
+                            android:id="@+id/seekBar1"
+                            android:layout_width="290sp"
+                            android:layout_height="40sp"
+                            android:layout_marginStart="5sp"
+                            android:max='20'
+                            android:min='1'
+                            android:progress="10"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="8dp"
+                            android:text="아니요"
+                            android:textSize="17dp">
+                        </TextView>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="380dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#ffffff"
+                android:focusable="true"
+                app:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="02. 당신은 반려견에게 투자할 수 있는 시간이 충분한가요?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="네"
+                            android:textSize="17dp"/>
+
+                        <SeekBar
+                            android:id="@+id/seekBar2"
+                            android:layout_width="290sp"
+                            android:layout_height="40sp"
+                            android:layout_marginStart="5sp"
+                            android:max='20'
+                            android:min='1'
+                            android:progress="10"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="8dp"
+                            android:text="아니요"
+                            android:textSize="17dp">
+                        </TextView>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="380dp"
+                android:layout_height="85dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#ffffff"
+                android:focusable="true"
+                app:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="03. 당신은 반려견 관리(목욕,털 관리)를 꾸준히 할 수 있을거 같나요?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="네"
+                            android:textSize="17dp"/>
+
+                        <SeekBar
+                            android:id="@+id/seekBar3"
+                            android:layout_width="290sp"
+                            android:layout_height="40sp"
+                            android:layout_marginStart="5sp"
+                            android:max='20'
+                            android:min='1'
+                            android:progress="10"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="8dp"
+                            android:text="아니요"
+                            android:textSize="17dp">
+                        </TextView>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="380dp"
+                android:layout_height="85dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#ffffff"
+                android:focusable="true"
+                app:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="04. 당신은 반려견을 두고 오랜 시간 집을 비우는 경우가 많이 있을 거 같나요?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="네"
+                            android:textSize="17dp"/>
+
+                        <SeekBar
+                            android:id="@+id/seekBar4"
+                            android:layout_width="290sp"
+                            android:layout_height="40sp"
+                            android:layout_marginStart="5sp"
+                            android:max='20'
+                            android:min='1'
+                            android:progress="10"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="8dp"
+                            android:text="아니요"
+                            android:textSize="17dp">
+                        </TextView>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="380dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#ffffff"
+                android:focusable="true"
+                app:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="05. 반려견의 돌발행동과 사고를 이해하고 올바른 교육방법을 배워 나갈 수 있나요?
+       ex)물기,베개 털 뜯기"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="네"
+                            android:textSize="17dp"/>
+
+                        <SeekBar
+                            android:id="@+id/seekBar5"
+                            android:layout_width="290sp"
+                            android:layout_height="40sp"
+                            android:layout_marginStart="5sp"
+                            android:max='20'
+                            android:min='1'
+                            android:progress="10"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="8dp"
+                            android:text="아니요"
+                            android:textSize="17dp">
+                        </TextView>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="380dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#ffffff"
+                android:focusable="true"
+                app:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="06. 반려동물을 소홀히하지않고 키울 수 있나요?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="네"
+                            android:textSize="17dp"/>
+
+                        <SeekBar
+                            android:id="@+id/seekBar6"
+                            android:layout_width="290sp"
+                            android:layout_height="40sp"
+                            android:layout_marginStart="5sp"
+                            android:max='20'
+                            android:min='1'
+                            android:progress="10"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="8dp"
+                            android:text="아니요"
+                            android:textSize="17dp">
+                        </TextView>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="380dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#ffffff"
+                android:focusable="true"
+                app:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="07. 당신은 규칙적인 생활을 하는 편인가요?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="네"
+                            android:textSize="17dp"/>
+
+                        <SeekBar
+                            android:id="@+id/seekBar7"
+                            android:layout_width="290sp"
+                            android:layout_height="40sp"
+                            android:layout_marginStart="5sp"
+                            android:max='20'
+                            android:min='1'
+                            android:progress="10"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="8dp"
+                            android:text="아니요"
+                            android:textSize="17dp">
+                        </TextView>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="380dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#ffffff"
+                android:focusable="true"
+                app:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="08. 당신은 다른 동물을 책임감있게 키워본적이 있나요?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="네"
+                            android:textSize="17dp"/>
+
+                        <SeekBar
+                            android:id="@+id/seekBar8"
+                            android:layout_width="290sp"
+                            android:layout_height="40sp"
+                            android:layout_marginStart="5sp"
+                            android:max='20'
+                            android:min='1'
+                            android:progress="10"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="8dp"
+                            android:text="아니요"
+                            android:textSize="17dp">
+                        </TextView>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="380dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#ffffff"
+                android:focusable="true"
+                app:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="09. 당신은 갑작스러운 상황에 대처를 잘하는 편인가요?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="네"
+                            android:textSize="17dp"/>
+
+                        <SeekBar
+                            android:id="@+id/seekBar9"
+                            android:layout_width="290sp"
+                            android:layout_height="40sp"
+                            android:layout_marginStart="5sp"
+                            android:max='20'
+                            android:min='1'
+                            android:progress="10"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="8dp"
+                            android:text="아니요"
+                            android:textSize="17dp">
+                        </TextView>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="380dp"
+                android:layout_height="85dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#ffffff"
+                android:focusable="true"
+                app:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="10. 당신의 가족들이 반려견을 키우는걸 긍정적으로 바라보나요?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="네"
+                            android:textSize="17dp"/>
+
+                        <SeekBar
+                            android:id="@+id/seekBar10"
+                            android:layout_width="290sp"
+                            android:layout_height="40sp"
+                            android:layout_marginStart="5sp"
+                            android:max='20'
+                            android:min='1'
+                            android:progress="10"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="8dp"
+                            android:text="아니요"
+                            android:textSize="17dp">
+                        </TextView>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Next"
+                android:layout_width="123dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/login_button_bk"
+                android:fontFamily="@font/font_outline"
+                android:text="다음"
+                tools:layout_editor_absoluteX="229dp"
+                tools:layout_editor_absoluteY="563dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Alarm.Destination">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="306dp"
+        android:layout_height="237dp"
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@drawable/dog" />
+
+    <TextView
+        android:id="@+id/text_now_time"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="현재 시간 : " />
+
+    <TextView
+        android:id="@+id/qus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="미지정"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black" />
+
+
+        <LinearLayout
+            android:layout_width="295dp"
+            android:layout_height="230dp"
+            android:gravity="center"
+            android:id="@+id/container"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="295dp"
+                android:layout_height="75dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="30dp"
+                    android:layout_height="75dp"
+                    android:id="@+id/check1">
+                </CheckBox>
+
+                <TextView
+                    android:layout_width="265dp"
+                    android:layout_height="75dp"
+                    android:text="미지정"
+                    android:textSize="20sp"
+                    android:id="@+id/ans1">
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="295dp"
+                android:layout_height="75dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="30dp"
+                    android:layout_height="75dp"
+                    android:id="@+id/check2">
+                </CheckBox>
+
+                <TextView
+                    android:layout_width="265dp"
+                    android:layout_height="75dp"
+                    android:text="미지정"
+                    android:textSize="20sp"
+                    android:id="@+id/ans2">
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="295dp"
+                android:layout_height="75dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="30dp"
+                    android:layout_height="75dp"
+                    android:id="@+id/check3">
+                </CheckBox>
+
+                <TextView
+                    android:layout_width="265dp"
+                    android:layout_height="75dp"
+                    android:text="미지정"
+                    android:textSize="20sp"
+                    android:id="@+id/ans3">
+                </TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+<!--    <RadioGroup-->
+<!--        android:id="@+id/alarm_radiogroup"-->
+<!--        android:layout_width="295dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="20dp">-->
+
+<!--        <RadioButton-->
+<!--            android:id="@+id/alarm_radioButton1"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="지금 해결할 수 있어요!" />-->
+<!--        -->
+
+<!--        <RadioButton-->
+<!--            android:id="@+id/alarm_radioButton2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="지금은 너무 힘들어서 나중에 치울래요." />-->
+
+<!--        <RadioButton-->
+<!--            android:id="@+id/alarm_radioButton3"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="생각치 못한 일이에요. 감당하기 버거워요." />-->
+<!--    </RadioGroup>-->
+
+    <Button
+        android:id="@+id/buttonClick"
+        android:layout_width="107dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font_outline"
+        android:text="select"
+        app:backgroundTint="#86B8B4" />
+
+    <ImageButton
+        android:id="@+id/imageButton_home"
+        android:layout_width="38dp"
+        android:layout_height="41dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/home"
+        app:tint="#80000000"/>
+
+
+</LinearLayout>
