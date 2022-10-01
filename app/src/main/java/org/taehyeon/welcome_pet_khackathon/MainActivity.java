@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
+
+
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.experienceItem:
-                    transaction.replace(R.id.frameLayout_main, fragment_experience).commitAllowingStateLoss();
+                    transaction.replace(R.id.frameLayout_main, fragment_experience).addToBackStack(null).commitAllowingStateLoss();
                     break;
                 case R.id.HomeItem:
                     transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
