@@ -49,9 +49,6 @@ public class experience_Fragment extends Fragment {
 
     }
 
-
-public class experience_Fragment extends Fragment {
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -103,7 +100,5 @@ public class experience_Fragment extends Fragment {
 
         return v;
     }
-
-
 
 }

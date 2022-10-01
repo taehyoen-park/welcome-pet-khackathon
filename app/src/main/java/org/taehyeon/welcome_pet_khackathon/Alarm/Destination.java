@@ -61,7 +61,7 @@ public class Destination extends AppCompatActivity {
         ans2.setText(an2);
         ans3.setText(an3);
 
-        if(c >= 7) c = 0;
+        if(c >= 8) c = 0;
         else c++;
 
     }
