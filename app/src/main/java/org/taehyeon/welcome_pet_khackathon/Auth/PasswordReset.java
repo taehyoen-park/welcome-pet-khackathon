@@ -52,6 +52,7 @@ public class PasswordReset extends AppCompatActivity {
             mAuth.sendPasswordResetEmail(email)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
+
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), "비밀번호 재설정 안내 이메일을 보냈습니다! 확인해주세요.",Toast.LENGTH_SHORT).show();
