@@ -42,6 +42,7 @@ public class PasswordReset extends AppCompatActivity {
 
     // 비밀번호 재설정 이메일 전송하기
 
+
     private void send() {
         String email = ((EditText) findViewById(R.id.passwordemailEditText)).getText().toString();
 
