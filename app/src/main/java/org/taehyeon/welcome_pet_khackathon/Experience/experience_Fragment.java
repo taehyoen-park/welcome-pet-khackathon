@@ -49,9 +49,6 @@ public class experience_Fragment extends Fragment {
 
     }
 
-
-public class experience_Fragment extends Fragment {
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -89,7 +86,6 @@ public class experience_Fragment extends Fragment {
             }
         });
 
-
         recyclerView = (RecyclerView) v.findViewById(R.id.recyclerview);
         //recyclerView.setHasFixedSize(true);
         mAdapter = new Experience_Adapter(ExperienceList);
@@ -100,10 +96,6 @@ public class experience_Fragment extends Fragment {
         //recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
-
         return v;
     }
-
-
-
 }

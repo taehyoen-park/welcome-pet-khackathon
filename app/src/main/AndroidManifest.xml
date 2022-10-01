@@ -25,8 +25,12 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".Auth.PasswordReset"
+            android:exported="false" />
+        <activity
             android:name=".Auth.Login"
             android:exported="true">
+
 
 
             <intent-filter>
