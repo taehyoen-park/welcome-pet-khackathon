@@ -172,6 +172,11 @@ public class survey extends AppCompatActivity {
             public void onClick(View view) {
                 setResult();
                 Intent intent = new Intent(survey.this,survey2.class);
+                intent.putExtra("result0",result[0]);
+                intent.putExtra("result1",result[1]);
+                intent.putExtra("result2",result[2]);
+                intent.putExtra("result3",result[3]);
+                intent.putExtra("result4",result[4]);
                 finish();
                 startActivity(intent);
             }

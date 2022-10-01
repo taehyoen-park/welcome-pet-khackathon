@@ -9,34 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/hour"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="100dp">
-
-        </EditText>
-        <EditText
-            android:id="@+id/min"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="140dp"
-            android:inputType="number"
-            android:maxLength="2">
-
-        </EditText>
-        <EditText
-            android:id="@+id/second"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="260dp"
-            android:inputType="number"
-            android:maxLength="2">
-
-        </EditText>
 
         <Button
             android:id="@+id/alram"

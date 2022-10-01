@@ -36,6 +36,7 @@
             android:layout_width="295dp"
             android:layout_height="230dp"
             android:gravity="center"
+            android:id="@+id/container"
             android:orientation="vertical">
 
             <LinearLayout

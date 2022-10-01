@@ -9,7 +9,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.timepicker.MaterialTimePicker;
@@ -27,9 +30,6 @@ public class survey2 extends AppCompatActivity {
     private AlarmManager alarmManager;
     private PendingIntent pendingIntent;
     private ActivitySurvey2Binding binding;
-
-
-    TextView time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +72,7 @@ public class survey2 extends AppCompatActivity {
 
     private void setAlarm()
     {
+
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent4 = new Intent(survey2.this,AlarmReciver.class);
         pendingIntent = PendingIntent.getBroadcast(survey2.this,0,intent4,
@@ -79,6 +80,7 @@ public class survey2 extends AppCompatActivity {
 
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,(System.currentTimeMillis()+5000),
                 5000/*AlarmManager.INTERVAL_DAY*/,pendingIntent);
+
 
         Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show();
     }

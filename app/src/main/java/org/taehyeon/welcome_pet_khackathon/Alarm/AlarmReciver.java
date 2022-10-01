@@ -9,7 +9,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.widget.CheckBox;
+import android.widget.TextView;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
@@ -18,7 +21,8 @@ import org.taehyeon.welcome_pet_khackathon.R;
 
 
 public class AlarmReciver extends BroadcastReceiver {
-    static int count = 1;
+
+    static int count = 0;
     @Override
     public void onReceive(Context context, Intent intent) {
 
