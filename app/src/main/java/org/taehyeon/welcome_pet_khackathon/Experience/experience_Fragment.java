@@ -35,7 +35,6 @@ public class experience_Fragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         ExperienceList.add(new Experience("배변훈련이 안됐을 때"));
         ExperienceList.add(new Experience("반려견이 아플 때"));
         ExperienceList.add(new Experience("전문가가 말하는 반려견의 문제행동"));
@@ -45,8 +44,6 @@ public class experience_Fragment extends Fragment {
         ExperienceList.add(new Experience("유기견에 대한 오해"));
         ExperienceList.add(new Experience("밤마다 짖는 반려견은 어떤 생각일까?"));
         ExperienceList.add(new Experience("반려견이 지나치게 활발할 때"));
-
-
     }
 
     @Nullable
@@ -86,7 +83,6 @@ public class experience_Fragment extends Fragment {
             }
         });
 
-
         recyclerView = (RecyclerView) v.findViewById(R.id.recyclerview);
         //recyclerView.setHasFixedSize(true);
         mAdapter = new Experience_Adapter(ExperienceList);
@@ -97,8 +93,6 @@ public class experience_Fragment extends Fragment {
         //recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
-
         return v;
     }
-
 }

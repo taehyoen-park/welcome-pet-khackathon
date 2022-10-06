@@ -18,6 +18,16 @@ public class userinfo_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_userinfo_, container, false);
 
+
+
+
+
+
+
+
+
+
+
         return v;
     }
 }
