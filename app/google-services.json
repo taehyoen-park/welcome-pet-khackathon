@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "8022855161",
+    "firebase_url": "https://welcome-pet-khackathon-default-rtdb.firebaseio.com",
     "project_id": "welcome-pet-khackathon",
     "storage_bucket": "welcome-pet-khackathon.appspot.com"
   },

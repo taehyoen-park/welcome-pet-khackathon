@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
     //private DatabaseReference mdataRef;
 
     EditText et_id,et_pw;
-    TextView join_tbtn;
+    TextView join_tbtn, password_reset;
     Button login_btn;
 
     @Override
@@ -43,34 +43,32 @@ public class Login extends AppCompatActivity {
         EditText et_pw = findViewById(R.id.enter_PW);
         TextView join_tbtn = findViewById(R.id.join);
         Button login_btn = findViewById(R.id.login);
+        TextView password_reset = findViewById(R.id.login_password_reset);
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(Login.this,"로그인을 성공하셨습니다!",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
 
-//                String str_id = et_id.getText().toString();
-//                String str_pw = et_pw.getText().toString();
-//                mfirebaseAuth.signInWithEmailAndPassword(str_id,str_pw).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-////                        if(task.isSuccessful())
-////                        {
-////                            Toast.makeText(Login.this,"로그인을 성공하셨습니다!",Toast.LENGTH_SHORT).show();
-////                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-////                            startActivity(intent);
-////                        }
-////                        else
-////                        {
-////                            Toast.makeText(Login.this,"로그인을 실패",Toast.LENGTH_SHORT).show();
-////                        }
-//
-//                    }
-//                });
-
+                String str_id = et_id.getText().toString();
+                String str_pw = et_pw.getText().toString();
+                if(str_id.equals("")){Toast.makeText(Login.this,"이메일을 확인해주세요",Toast.LENGTH_SHORT).show();return;}
+                if(str_pw.equals("")){Toast.makeText(Login.this,"비밀번호를 확인해주세요",Toast.LENGTH_SHORT).show();return;}
+                mfirebaseAuth.signInWithEmailAndPassword(str_id,str_pw).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful())
+                        {
+                            Toast.makeText(Login.this,"로그인을 성공하셨습니다!",Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            Toast.makeText(Login.this,"로그인을 실패",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
 
@@ -78,6 +76,13 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Userinput.class);
+                startActivity(intent);
+            }
+        });
+        password_reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PasswordReset.class);
                 startActivity(intent);
             }
         });
