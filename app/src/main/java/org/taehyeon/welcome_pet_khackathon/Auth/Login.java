@@ -15,8 +15,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
 
 import org.taehyeon.welcome_pet_khackathon.MainActivity;
 import org.taehyeon.welcome_pet_khackathon.R;
@@ -25,7 +25,7 @@ import org.taehyeon.welcome_pet_khackathon.Userinfo.userinfo_Fragment;
 public class Login extends AppCompatActivity {
 
     private FirebaseAuth mfirebaseAuth; // 파이어베이스 인증처리
-    private DatabaseReference mdataRef;
+    //private DatabaseReference mdataRef;
 
     EditText et_id,et_pw;
     TextView join_tbtn, password_reset;
@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mfirebaseAuth = FirebaseAuth.getInstance();
-        mdataRef = FirebaseDatabase.getInstance().getReference("WelcomePet");
+        //mdataRef = FirebaseDatabase.getInstance().getReference("WelcomePet");
 
         EditText et_id = findViewById(R.id.enter_ID);
         EditText et_pw = findViewById(R.id.enter_PW);
@@ -48,6 +48,7 @@ public class Login extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
                 String str_id = et_id.getText().toString();
                 String str_pw = et_pw.getText().toString();
@@ -68,7 +69,6 @@ public class Login extends AppCompatActivity {
                         }
                     }
                 });
-
             }
         });
 
