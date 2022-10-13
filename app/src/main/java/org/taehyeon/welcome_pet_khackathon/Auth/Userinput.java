@@ -25,6 +25,7 @@ public class Userinput extends AppCompatActivity {
     private DatabaseReference mdataRef;
     private EditText check,pw,email,phone,name;
     private Button register_btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,6 @@ public class Userinput extends AppCompatActivity {
         phone = findViewById(R.id.register_phone);
         name = findViewById(R.id.register_name);
         register_btn = findViewById(R.id.register);
-
 
         register_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +57,8 @@ public class Userinput extends AppCompatActivity {
                 if(str_check.equals(str_PW) == false) { Toast.makeText(Userinput.this,"비밀번호 확인과 비밀번호가 일치하지 않습니다.",Toast.LENGTH_SHORT).show();return; }
                 if(str_phone.equals("")) { Toast.makeText(Userinput.this,"전화번호를 확인해주세요",Toast.LENGTH_SHORT).show();return; }
 
-                mfirebaseAuth.createUserWithEmailAndPassword(str_email,str_PW).addOnCompleteListener(Userinput.this, new OnCompleteListener<AuthResult>() {
+                mfirebaseAuth.createUserWithEmailAndPassword(str_email,str_PW).
+                        addOnCompleteListener(Userinput.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if((task.isSuccessful()))
@@ -66,7 +67,7 @@ public class Userinput extends AppCompatActivity {
                                 UserAccount account = new UserAccount();
                                 account.setIdtoken((firebaseUser.getUid()));
                                 account.setEmail(firebaseUser.getEmail());
-                                account.setPhone(firebaseUser.getPhoneNumber());
+                                account.setPhone(str_phone);
                                 account.setName(str_name);
                                 account.setPw(str_PW);
 

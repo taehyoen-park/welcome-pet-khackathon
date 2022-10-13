@@ -17,6 +17,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
 
 import org.taehyeon.welcome_pet_khackathon.MainActivity;
 import org.taehyeon.welcome_pet_khackathon.R;
@@ -49,6 +51,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 String str_id = et_id.getText().toString();
                 String str_pw = et_pw.getText().toString();
                 if(str_id.equals("")){Toast.makeText(Login.this,"이메일을 확인해주세요",Toast.LENGTH_SHORT).show();return;}
@@ -61,6 +64,7 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this,"로그인을 성공하셨습니다!",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent);
+                            finish();
                         }
                         else
                         {

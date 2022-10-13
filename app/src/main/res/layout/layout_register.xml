@@ -99,6 +99,7 @@
             android:layout_width="280dp"
             android:layout_height="55dp"
             android:hint="전화번호"
+            android:inputType="phone"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 

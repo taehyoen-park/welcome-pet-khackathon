@@ -9,17 +9,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <Button
-            android:id="@+id/alram"
-            android:layout_width="150dp"
-            android:layout_height="80dp"
+        <androidx.cardview.widget.CardView
+            android:elevation="40dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="400dp"
-            android:inputType="number"
-            android:maxLength="2"
-            android:text="알람울리기"></Button>
+            android:layout_width="350dp"
+            android:layout_height="550dp"
+            android:layout_marginLeft="32dp"
+            android:background="#fff"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="320dp"
+                android:layout_height="520dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="\n시작하기 버튼을 누르면 설문조사 화면이 나옵니다.\n
+                \n설문조사를 통해 반려견 종추천과, 설문조사 후에 하실 체험이 약간 달라지므로 신중하게
+해주시길 바랍니다."
+                android:textSize="25dp">
+            </TextView>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/alram"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="620dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/register_button_bk"
+            android:text="시작하기" />
 
     </RelativeLayout>
 
