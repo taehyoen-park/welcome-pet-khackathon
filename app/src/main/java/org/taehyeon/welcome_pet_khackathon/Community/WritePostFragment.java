@@ -63,7 +63,7 @@ public class WritePostFragment extends Fragment {
             public void onClick(View view) {
                 if(title.length() > 0 && contents.length() > 0 ) {
                     user = FirebaseAuth.getInstance().getCurrentUser();
-                    WriteInfo writeInfo = new WriteInfo(title, contents, userAccount.getEmail()); //유저 아이디가 들어가야함.
+                    WriteInfo writeInfo = new WriteInfo(title, contents, userAccount.getEmail()); //유저 아이디가 들어가야함. 아이디 가져와주세요.
                     uploader(writeInfo);
                 } else {
                     Toast.makeText(getContext(),"회원정보를 입력해",Toast.LENGTH_SHORT).show();
