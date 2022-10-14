@@ -368,7 +368,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
-                        android:text="06. 반려동물을 소홀히하지않고 키울 수 있나요?"
+                        android:text="06. 당신은 반려견을 다른 반려견과 자주 만나게 할 것 인가요?"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
 
@@ -391,9 +391,9 @@
                             android:layout_width="290sp"
                             android:layout_height="40sp"
                             android:layout_marginStart="5sp"
-                            android:max='20'
+                            android:max='3'
                             android:min='1'
-                            android:progress="10"/>
+                            android:progress="2"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -426,7 +426,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
-                        android:text="07. 당신은 규칙적인 생활을 하는 편인가요?"
+                        android:text="07. 당신은 반려견이 원하는 시간 만큼 산책하는 것을 즐기면서 할 수 있나요?"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
 
@@ -448,9 +448,9 @@
                             android:layout_width="290sp"
                             android:layout_height="40sp"
                             android:layout_marginStart="5sp"
-                            android:max='20'
+                            android:max='3'
                             android:min='1'
-                            android:progress="10"/>
+                            android:progress="2"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -483,7 +483,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
-                        android:text="08. 당신은 다른 동물을 책임감있게 키워본적이 있나요?"
+                        android:text="08. 당신의 반려견이 자주 짖어도 상관 없나요?"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
 
@@ -505,9 +505,9 @@
                             android:layout_width="290sp"
                             android:layout_height="40sp"
                             android:layout_marginStart="5sp"
-                            android:max='20'
+                            android:max='3'
                             android:min='1'
-                            android:progress="10"/>
+                            android:progress="2"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -522,7 +522,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="380dp"
-                android:layout_height="75dp"
+                android:layout_height="85dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#ffffff"
@@ -539,7 +539,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
-                        android:text="09. 당신은 갑작스러운 상황에 대처를 잘하는 편인가요?"
+                        android:text="09. 당신의 강아지가 충성심이 약간 떨어지더라도 반려견의 외모가 충분히 사랑스럽다면
+상관없나요?"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
 
@@ -561,9 +562,9 @@
                             android:layout_width="290sp"
                             android:layout_height="40sp"
                             android:layout_marginStart="5sp"
-                            android:max='20'
+                            android:max='3'
                             android:min='1'
-                            android:progress="10"/>
+                            android:progress="2"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -597,7 +598,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
-                        android:text="10. 당신의 가족들이 반려견을 키우는걸 긍정적으로 바라보나요?"
+                        android:text="10. 당신의 반려견이 다른 견보다 특출나게 뛰어났으면 좋겠나요?"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
 
@@ -619,9 +620,9 @@
                             android:layout_width="290sp"
                             android:layout_height="40sp"
                             android:layout_marginStart="5sp"
-                            android:max='20'
+                            android:max='5'
                             android:min='1'
-                            android:progress="10"/>
+                            android:progress="3"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

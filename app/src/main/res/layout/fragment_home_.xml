@@ -13,14 +13,14 @@
             android:elevation="40dp"
             android:layout_gravity="center"
             android:layout_width="350dp"
-            android:layout_height="550dp"
+            android:layout_height="450dp"
             android:layout_marginLeft="32dp"
             android:background="#fff"
             android:layout_marginTop="20dp">
 
             <TextView
                 android:layout_width="320dp"
-                android:layout_height="520dp"
+                android:layout_height="420dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
                 android:text="\n시작하기 버튼을 누르면 설문조사 화면이 나옵니다.\n
@@ -38,7 +38,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="620dp"
+            android:layout_marginTop="520dp"
             android:layout_marginRight="50dp"
             android:background="@drawable/register_button_bk"
             android:text="시작하기" />

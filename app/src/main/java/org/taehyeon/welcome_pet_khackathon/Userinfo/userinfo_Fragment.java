@@ -59,9 +59,9 @@ public class userinfo_Fragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.getValue(UserAccount.class) != null){
                     UserAccount account = snapshot.getValue(UserAccount.class);
-                    useremail.setText("      이메일:"+account.getEmail());
-                    username.setText("      이름:"+account.getName());
-                    userphone.setText("      전화번호:"+account.getPhone());
+                    useremail.setText("이메일: "+account.getEmail());
+                    username.setText("이름: "+account.getName());
+                    userphone.setText("전화번호: "+account.getPhone());
                 } else {
                     Toast.makeText(getContext(), "데이터 없음...", Toast.LENGTH_SHORT).show();
                 }

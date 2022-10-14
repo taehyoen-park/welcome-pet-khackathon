@@ -36,8 +36,8 @@ public class survey2 extends AppCompatActivity {
 
     TextView spname,dogt;
     ImageView dogim;
-    Random random = new Random();
-    int rv = random.nextInt(10);
+
+    int rv;
 
     String[] strspname = {
             "  추천 종:비글","  추천 종:도베르만","  추천 종:골든리트리버","  추천 종:시바견","  추천 종:포메라니안","  추천 종:비숑",
@@ -81,9 +81,12 @@ public class survey2 extends AppCompatActivity {
         setContentView(binding.getRoot());
         createNotificationChannel();
 
+        Intent intent = getIntent();
+        rv = intent.getIntExtra("dogresult",rv);
         dogt = findViewById(R.id.dogtext);
         spname = findViewById(R.id.spname);
         dogim = findViewById(R.id.dogim);
+
         spname.setText(strspname[rv]);
 
         if(rv == 0) {
