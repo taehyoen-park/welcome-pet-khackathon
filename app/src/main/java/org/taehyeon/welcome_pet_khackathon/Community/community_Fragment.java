@@ -42,6 +42,29 @@ public class community_Fragment extends Fragment {
             }
         });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         return v;
     }
 

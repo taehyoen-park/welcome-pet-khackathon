@@ -32,10 +32,11 @@ public class WritePostFragment extends Fragment {
 
     private static final String TAG = "WritePostFragment";
     UserAccount userAccount = new UserAccount();
-
+    private FirebaseAuth Auth = FirebaseAuth.getInstance();
+    private FirebaseUser user;
     Button button_check;
     String name="default";
-    FirebaseUser user;
+    String title,contents;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,21 +50,22 @@ public class WritePostFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_write_post, container, false);
 
-        final String title = ((EditText) v.findViewById(R.id.title_editText)).getText().toString();
-        final String contents = ((EditText) v.findViewById(R.id.contents_editText)).getText().toString();
-        button_check = v.findViewById(R.id.button_check);
+        title = ((EditText) v.findViewById(R.id.title_editText)).getText().toString();
+        contents = ((EditText) v.findViewById(R.id.contents_editText)).getText().toString();
+
 
         if(getArguments()!=null)
         {
             Toast.makeText(getContext(),"화면이 넘어옴", Toast.LENGTH_SHORT).show();
         }
 
+        button_check = v.findViewById(R.id.button_check);
         button_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(title.length() > 0 && contents.length() > 0 ) {
                     user = FirebaseAuth.getInstance().getCurrentUser();
-                    WriteInfo writeInfo = new WriteInfo(title, contents, userAccount.getEmail()); //유저 아이디가 들어가야함. 아이디 가져와주세요.
+                    WriteInfo writeInfo = new WriteInfo(title, contents, user.getUid()); //유저 아이디가 들어가야함. 아이디 가져와주세요.
                     uploader(writeInfo);
                 } else {
                     Toast.makeText(getContext(),"회원정보를 입력해",Toast.LENGTH_SHORT).show();
