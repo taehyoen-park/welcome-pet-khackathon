@@ -12,7 +12,6 @@
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/drawable/register.xml" value="0.1595" />
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/drawable/register_button_bk.xml" value="0.1665" />
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/font/custom_font_family.xml" value="0.1" />
-        <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/activity_destination.xml" value="0.20092592592592592" />
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/activity_password_reset.xml" value="0.264" />
@@ -20,12 +19,12 @@
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/activity_survey2.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/activity_userinput.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/activity_write_post.xml" value="0.24947916666666667" />
-        <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/fragment_community_.xml" value="0.23859649122807017" />
+        <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/fragment_community_.xml" value="0.264" />
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/fragment_experience_.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/fragment_experience_2.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/fragment_home_.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/fragment_shop_.xml" value="0.24947916666666667" />
-        <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/fragment_userinfo_.xml" value="0.16412213740458015" />
+        <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/fragment_userinfo_.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/fragment_write_post.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/layout_experience_item.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/welcomepetkhackathon/app/src/main/res/layout/layout_login.xml" value="0.264" />
@@ -47,9 +46,13 @@
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/drawable/button_round.xml" value="0.255" />
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.178" />
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/drawable/shadow.xml" value="0.11" />
+        <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/activity_destination.xml" value="0.23385416666666667" />
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/activity_login.xml" value="0.1453804347826087" />
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/activity_password_reset.xml" value="0.23385416666666667" />
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/activity_survey.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/activity_survey2.xml" value="0.23385416666666667" />
+        <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/activity_userinput.xml" value="0.23385416666666667" />
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/activity_write_post.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/fragment_community_.xml" value="0.264" />
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/fragment_experience_.xml" value="0.264" />
@@ -61,6 +64,7 @@
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/layout_experience_item.xml" value="0.25735294117647056" />
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/layout_experience_place.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/layout_login.xml" value="0.2346014492753623" />
+        <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/layout_password_reset.xml" value="0.23385416666666667" />
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/layout_register.xml" value="0.12132725430597771" />
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/post_cardview.xml" value="0.2857142857142857" />
         <entry key="..\:/Users/osmin/workspace/hk/welcome-pet-khackathon/app/src/main/res/layout/view_loader.xml" value="0.24947916666666667" />

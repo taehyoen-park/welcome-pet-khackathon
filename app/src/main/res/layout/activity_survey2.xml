@@ -12,7 +12,7 @@
         android:layout_width="400dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:text="    당신과 어울리는 강아지는?"
+        android:text="당신과 어울리는 강아지는?"
         android:textSize="30dp"
         android:layout_marginTop="10dp"
         android:textColor="#FFB085">
