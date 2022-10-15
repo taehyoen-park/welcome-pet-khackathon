@@ -25,8 +25,9 @@
             android:layout_height="109dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:src="@drawable/user"></de.hdodenhof.circleimageview.CircleImageView>
+            android:src="@drawable/user">
 
+        </de.hdodenhof.circleimageview.CircleImageView>
 
         <TextView
             android:id="@+id/UserName"
