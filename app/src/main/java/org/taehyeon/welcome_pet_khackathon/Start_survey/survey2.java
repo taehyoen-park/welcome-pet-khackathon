@@ -173,11 +173,11 @@ public class survey2 extends AppCompatActivity {
         alarmManager.cancel(pendingIntent);
         Toast.makeText(this, "Alarm Cancelled", Toast.LENGTH_SHORT).show();
 
-        //화면 전환
-        //Toast.makeText(survey2.this,"로그인을 성공하셨습니다!",Toast.LENGTH_SHORT).show();
-        Intent intent2 = new Intent(getApplicationContext(), survey2.class);
+//        화면 전환
+        Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent2);
         finish();
+
     }
 
 
@@ -195,6 +195,7 @@ public class survey2 extends AppCompatActivity {
         Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show();
 
         //화면 전환
+
         
     }
 

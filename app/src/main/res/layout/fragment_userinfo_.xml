@@ -33,8 +33,8 @@
             android:id="@+id/UserName"
             android:layout_width="350dp"
             android:layout_height="39dp"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="50dp"
+            android:layout_gravity="center"
             android:background="#dcdcdc"
             android:paddingLeft="30dp"
             android:paddingTop="8dp"
@@ -46,12 +46,12 @@
             android:id="@+id/useremail"
             android:layout_width="350dp"
             android:layout_height="39dp"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="5dp"
             android:background="#dcdcdc"
             android:paddingLeft="30dp"
             android:paddingTop="8dp"
             android:text="이메일:"
+            android:layout_gravity="center"
             android:textColor="#000"
             android:textSize="18dp"></TextView>
 
@@ -60,13 +60,13 @@
             android:id="@+id/userphone"
             android:layout_width="350dp"
             android:layout_height="39dp"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="5dp"
             android:background="#dcdcdc"
             android:paddingLeft="30dp"
             android:paddingTop="8dp"
             android:text="전화번호:"
             android:textColor="#000"
+            android:layout_gravity="center"
             android:textSize="18dp"></TextView>
 
 
@@ -74,13 +74,13 @@
             android:id="@+id/userjob"
             android:layout_width="350dp"
             android:layout_height="39dp"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="5dp"
             android:background="#dcdcdc"
             android:paddingLeft="30dp"
             android:paddingTop="8dp"
             android:text="신분: 일반인"
             android:textColor="#000"
+            android:layout_gravity="center"
             android:textSize="18dp"></TextView>
 
         <Button
