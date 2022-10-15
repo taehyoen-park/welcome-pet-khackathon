@@ -29,8 +29,9 @@
 
                 <ImageView
                     android:id="@+id/profile"
-                    android:layout_width="47dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
                     tools:src="@drawable/user" />
 
                 <LinearLayout
