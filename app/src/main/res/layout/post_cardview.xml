@@ -2,15 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="200dp"
-    android:orientation="vertical"
-    android:layout_margin="20dp">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
-        android:layout_width="385dp"
-        android:layout_height="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:elevation="10dp"
         card_view:cardCornerRadius="4dp">
@@ -73,33 +73,10 @@
                 android:maxLength="100"
                 android:padding="3dp" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/commentcount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:hint=" Likes"
-                android:padding="3dp" />
-
-            <TextView
-                android:id="@+id/hartcount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:hint=" Comments"
-                android:padding="3dp"
-                android:textAlignment="textEnd" />
 
         </LinearLayout>
+
+
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
@@ -114,19 +91,39 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/comment_img"
+            android:background="#fff"
             android:scaleType="centerCrop"
-            android:background="#fff" />
+            android:src="@drawable/comment_img" />
 
+
+        <TextView
+            android:id="@+id/commentcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:hint=" Likes"
+            android:padding="3dp" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/like_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/heart1"
+            android:background="#fff"
             android:scaleType="centerCrop"
-            android:background="#fff" />
+            android:src="@drawable/heart1" />
+
+        <TextView
+            android:id="@+id/hartcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="bottom"
+            android:hint=" Comments"
+            android:padding="3dp"
+            android:textAlignment="textEnd" />
+
+
 
 
     </LinearLayout>
