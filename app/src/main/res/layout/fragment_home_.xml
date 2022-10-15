@@ -24,7 +24,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
                 android:text="\n시작하기 버튼을 누르면 설문조사 화면이 나옵니다.\n
-                \n설문조사를 통해 반려견 종추천과, 설문조사 후에 하실 체험이 약간 달라지므로 신중하게
+                \n설문조사를 통해 반려견 종추천 결과와 사전체험이 달라집니다.  \n\n설문조사는 신중하게
 해주시길 바랍니다."
                 android:textSize="25dp">
             </TextView>
