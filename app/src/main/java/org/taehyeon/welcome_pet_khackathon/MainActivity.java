@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     experience_Fragment fragment_experience = new experience_Fragment();
     WritePostFragment fragment_write_post = new WritePostFragment();
     progress_Fragment fragment_progress = new progress_Fragment();
+
     int c = 0;
 
     @Override
@@ -73,10 +74,12 @@ public class MainActivity extends AppCompatActivity {
                     transaction.replace(R.id.frameLayout_main, fragment_experience).addToBackStack(null).commitAllowingStateLoss();
                     break;
                 case R.id.HomeItem:
+
                     if(c == 0)
                         transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
                     if(c == 1)
                         transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
+
                     break;
                 case R.id.CommunityItem:
                     transaction.replace(R.id.frameLayout_main, fragment_community).commitAllowingStateLoss();

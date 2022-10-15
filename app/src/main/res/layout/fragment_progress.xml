@@ -9,7 +9,6 @@
     android:background="@drawable/background"
     tools:context=".Home.progress_Fragment">
 
-
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="36dp"

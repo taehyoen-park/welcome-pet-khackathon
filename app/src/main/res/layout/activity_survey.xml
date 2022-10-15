@@ -86,7 +86,7 @@
                         android:textSize="15dp" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:orientation="horizontal">
@@ -101,9 +101,10 @@
 
                         <SeekBar
                             android:id="@+id/seekBar1"
-                            android:layout_width="290sp"
-                            android:layout_height="40sp"
-                            android:layout_marginStart="5sp"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
                             android:max='20'
                             android:min='1'
                             android:progress="10" />
@@ -147,6 +148,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:orientation="horizontal">
 
                         <TextView
@@ -159,9 +161,10 @@
 
                         <SeekBar
                             android:id="@+id/seekBar2"
-                            android:layout_width="290sp"
-                            android:layout_height="40sp"
-                            android:layout_marginStart="5sp"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
                             android:max='20'
                             android:min='1'
                             android:progress="10"/>
@@ -205,6 +208,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:orientation="horizontal">
 
                         <TextView
@@ -217,9 +221,10 @@
 
                         <SeekBar
                             android:id="@+id/seekBar3"
-                            android:layout_width="290sp"
-                            android:layout_height="40sp"
-                            android:layout_marginStart="5sp"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
                             android:max='20'
                             android:min='1'
                             android:progress="10"/>
@@ -249,7 +254,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
@@ -264,6 +269,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:orientation="horizontal">
 
                         <TextView
@@ -276,9 +282,10 @@
 
                         <SeekBar
                             android:id="@+id/seekBar4"
-                            android:layout_width="290sp"
-                            android:layout_height="40sp"
-                            android:layout_marginStart="5sp"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
                             android:max='20'
                             android:min='1'
                             android:progress="10"/>
@@ -307,7 +314,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
@@ -323,6 +330,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:orientation="horizontal">
 
                         <TextView
@@ -335,9 +343,10 @@
 
                         <SeekBar
                             android:id="@+id/seekBar5"
-                            android:layout_width="290sp"
-                            android:layout_height="40sp"
-                            android:layout_marginStart="5sp"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
                             android:max='20'
                             android:min='1'
                             android:progress="10"/>
@@ -381,6 +390,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:orientation="horizontal">
 
 
@@ -394,9 +404,10 @@
 
                         <SeekBar
                             android:id="@+id/seekBar6"
-                            android:layout_width="290sp"
-                            android:layout_height="40sp"
-                            android:layout_marginStart="5sp"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
                             android:max='3'
                             android:min='1'
                             android:progress="2"/>
@@ -440,6 +451,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:orientation="horizontal">
 
                         <TextView
@@ -452,9 +464,10 @@
 
                         <SeekBar
                             android:id="@+id/seekBar7"
-                            android:layout_width="290sp"
-                            android:layout_height="40sp"
-                            android:layout_marginStart="5sp"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
                             android:max='3'
                             android:min='1'
                             android:progress="2"/>
@@ -482,7 +495,7 @@
                 app:cardCornerRadius="15dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
@@ -498,6 +511,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:orientation="horizontal">
 
                         <TextView
@@ -510,9 +524,10 @@
 
                         <SeekBar
                             android:id="@+id/seekBar8"
-                            android:layout_width="290sp"
-                            android:layout_height="40sp"
-                            android:layout_marginStart="5sp"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
                             android:max='3'
                             android:min='1'
                             android:progress="2"/>
@@ -556,6 +571,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:orientation="horizontal">
 
                         <TextView
@@ -568,9 +584,10 @@
 
                         <SeekBar
                             android:id="@+id/seekBar9"
-                            android:layout_width="290sp"
-                            android:layout_height="40sp"
-                            android:layout_marginStart="5sp"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
                             android:max='3'
                             android:min='1'
                             android:progress="2"/>
@@ -615,6 +632,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:orientation="horizontal">
 
                         <TextView
@@ -627,9 +645,10 @@
 
                         <SeekBar
                             android:id="@+id/seekBar10"
-                            android:layout_width="290sp"
-                            android:layout_height="40sp"
-                            android:layout_marginStart="5sp"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
                             android:max='5'
                             android:min='1'
                             android:progress="3"/>
@@ -648,8 +667,8 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Next"
-                android:layout_width="123dp"
-                android:layout_height="48dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"

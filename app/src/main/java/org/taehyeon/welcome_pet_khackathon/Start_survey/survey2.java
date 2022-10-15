@@ -197,12 +197,9 @@ public class survey2 extends AppCompatActivity {
                 5000/*AlarmManager.INTERVAL_DAY*/,pendingIntent);
 
         Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show();
-
-//      화면 전환
         Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
         intent2.putExtra("chage",1);
         startActivity(intent2);
-        finish();
 
     }
 
