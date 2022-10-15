@@ -20,6 +20,9 @@ import android.widget.Toast;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 import org.taehyeon.welcome_pet_khackathon.Alarm.AlarmReciver;
+import org.taehyeon.welcome_pet_khackathon.Auth.Login;
+import org.taehyeon.welcome_pet_khackathon.Home.home_Fragment;
+import org.taehyeon.welcome_pet_khackathon.MainActivity;
 import org.taehyeon.welcome_pet_khackathon.R;
 import org.taehyeon.welcome_pet_khackathon.databinding.ActivitySurvey2Binding;
 import java.util.Calendar;
@@ -169,6 +172,12 @@ public class survey2 extends AppCompatActivity {
         }
         alarmManager.cancel(pendingIntent);
         Toast.makeText(this, "Alarm Cancelled", Toast.LENGTH_SHORT).show();
+
+        //화면 전환
+        //Toast.makeText(survey2.this,"로그인을 성공하셨습니다!",Toast.LENGTH_SHORT).show();
+        Intent intent2 = new Intent(getApplicationContext(), survey2.class);
+        startActivity(intent2);
+        finish();
     }
 
 
@@ -183,8 +192,10 @@ public class survey2 extends AppCompatActivity {
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,(System.currentTimeMillis()+5000),
                 5000/*AlarmManager.INTERVAL_DAY*/,pendingIntent);
 
-
         Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show();
+
+        //화면 전환
+        
     }
 
 
