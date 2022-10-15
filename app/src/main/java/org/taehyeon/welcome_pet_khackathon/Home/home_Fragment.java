@@ -28,6 +28,9 @@ public class home_Fragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+
+
         return v;
     }
 }

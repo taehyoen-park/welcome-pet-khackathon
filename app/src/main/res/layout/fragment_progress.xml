@@ -7,9 +7,8 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/background"
-    tools:context=".Home.home_Fragment">
+    tools:context=".Home.progress_Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -96,7 +95,7 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="305dp"
+            android:layout_width="278dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/font_1"
             android:gravity="center"
@@ -130,7 +129,9 @@
             android:layout_width="231dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:progress="20" />
+            android:min="0"
+            android:max="5"
+            android:progress="0" />
 
     </LinearLayout>
 

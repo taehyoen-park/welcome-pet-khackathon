@@ -15,6 +15,7 @@ import org.taehyeon.welcome_pet_khackathon.Community.WritePostFragment;
 import org.taehyeon.welcome_pet_khackathon.Community.community_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Experience.experience_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Home.home_Fragment;
+import org.taehyeon.welcome_pet_khackathon.Home.progress_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Shop.shop_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Userinfo.userinfo_Fragment;
 
@@ -27,19 +28,33 @@ public class MainActivity extends AppCompatActivity {
     community_Fragment fragment_community = new community_Fragment();
     experience_Fragment fragment_experience = new experience_Fragment();
     WritePostFragment fragment_write_post = new WritePostFragment();
-
+    progress_Fragment fragment_progress = new progress_Fragment();
+    int c = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
+        Intent intent9 = getIntent();
+        if(intent9.hasExtra("chage"))
+            c = intent9.getIntExtra("chage",1);
+        else
+            c = 0;
+
+        if(c == 0){
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
+        }
+        else
+        {
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
+        }
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
-
 
     }
 
@@ -58,7 +73,10 @@ public class MainActivity extends AppCompatActivity {
                     transaction.replace(R.id.frameLayout_main, fragment_experience).addToBackStack(null).commitAllowingStateLoss();
                     break;
                 case R.id.HomeItem:
-                    transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
+                    if(c == 0)
+                        transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
+                    if(c == 1)
+                        transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
                     break;
                 case R.id.CommunityItem:
                     transaction.replace(R.id.frameLayout_main, fragment_community).commitAllowingStateLoss();
@@ -70,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
+
     public void onFragmentChange(int index){
         if(index == 0){
             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_main,fragment_community).commitAllowingStateLoss();

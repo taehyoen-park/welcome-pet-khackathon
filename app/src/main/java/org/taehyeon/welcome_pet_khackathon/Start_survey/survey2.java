@@ -1,6 +1,8 @@
 package org.taehyeon.welcome_pet_khackathon.Start_survey;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
 import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -21,9 +23,12 @@ import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 import org.taehyeon.welcome_pet_khackathon.Alarm.AlarmReciver;
 import org.taehyeon.welcome_pet_khackathon.Auth.Login;
+import org.taehyeon.welcome_pet_khackathon.Experience.experience_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Home.home_Fragment;
 import org.taehyeon.welcome_pet_khackathon.MainActivity;
 import org.taehyeon.welcome_pet_khackathon.R;
+import org.taehyeon.welcome_pet_khackathon.Shop.shop_Fragment;
+import org.taehyeon.welcome_pet_khackathon.Userinfo.userinfo_Fragment;
 import org.taehyeon.welcome_pet_khackathon.databinding.ActivitySurvey2Binding;
 import java.util.Calendar;
 import java.util.Random;
@@ -36,6 +41,10 @@ public class survey2 extends AppCompatActivity {
     private AlarmManager alarmManager;
     private PendingIntent pendingIntent;
     private ActivitySurvey2Binding binding;
+
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    home_Fragment fragment_home = new home_Fragment();
+
 
     TextView spname,dogt;
     ImageView dogim;
@@ -173,11 +182,6 @@ public class survey2 extends AppCompatActivity {
         alarmManager.cancel(pendingIntent);
         Toast.makeText(this, "Alarm Cancelled", Toast.LENGTH_SHORT).show();
 
-//        화면 전환
-        Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent2);
-        finish();
-
     }
 
 
@@ -194,9 +198,12 @@ public class survey2 extends AppCompatActivity {
 
         Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show();
 
-        //화면 전환
+//      화면 전환
+        Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
+        intent2.putExtra("chage",1);
+        startActivity(intent2);
+        finish();
 
-        
     }
 
 

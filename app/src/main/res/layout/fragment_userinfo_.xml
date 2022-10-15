@@ -53,8 +53,8 @@
             android:text="이메일:"
             android:layout_gravity="center"
             android:textColor="#000"
-            android:textSize="18dp"></TextView>
-
+            android:textSize="18dp">
+        </TextView>
 
         <TextView
             android:id="@+id/userphone"
@@ -67,8 +67,9 @@
             android:text="전화번호:"
             android:textColor="#000"
             android:layout_gravity="center"
-            android:textSize="18dp"></TextView>
+            android:textSize="18dp">
 
+        </TextView>
 
         <TextView
             android:id="@+id/userjob"
@@ -103,7 +104,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:text="공인인증을 통해 당신이 공인임을 알리세요!"
-            android:textSize="14dp"></TextView>
+            android:textSize="14dp">
+        </TextView>
 
         <Button
             android:id="@+id/logout_btn"

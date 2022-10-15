@@ -1,11 +1,16 @@
 package org.taehyeon.welcome_pet_khackathon.Alarm;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.taehyeon.welcome_pet_khackathon.MainActivity;
 import org.taehyeon.welcome_pet_khackathon.R;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,12 +47,16 @@ public class Destination extends AppCompatActivity {
     CheckBox ch1,ch2,ch3;
     TextView ans1,ans2,ans3;
     TextView qus;
+    Button ch_btn;
+    ProgressBar progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destination);
 
+        progress = findViewById(R.id.progressBar);
+        ch_btn = findViewById(R.id.button_check);
         ch1 = findViewById(R.id.check1);
         ch2 = findViewById(R.id.check2);
         ch3 = findViewById(R.id.check3);
@@ -60,6 +69,19 @@ public class Destination extends AppCompatActivity {
         ans1.setText(an1);
         ans2.setText(an2);
         ans3.setText(an3);
+
+        ch_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(ch1.isChecked() || ch2.isChecked() || ch3.isChecked())
+                {
+                    progress.incrementProgressBy(1);
+                    Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent2);
+                    finish();
+                }
+            }
+        });
 
         if(c >= 8) c = 0;
         else c++;
