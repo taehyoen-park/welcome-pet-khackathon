@@ -34,7 +34,7 @@ public class experience_Fragment2 extends Fragment {
         view = inflater.inflate(R.layout.fragment_experience_2, container, false);
         textView_exp = view.findViewById(R.id.textView_exp);
 
-        button_ar = view.findViewById(R.id.button_ar);
+        button_ar = view.findViewById(R.id.button_info_ar);
         button_exp = view.findViewById(R.id.button_exp);
         textView = view.findViewById(R.id.textView_experience);
 
