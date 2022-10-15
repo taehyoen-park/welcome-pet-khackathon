@@ -27,7 +27,7 @@
                 android:paddingTop="8dp"
                 android:text="게시판"
                 android:textColor="#F9D5A7"
-                android:textSize="45dp"></TextView>
+                android:textSize="40dp"></TextView>
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:layout_width="30dp"
