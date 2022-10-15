@@ -1,14 +1,15 @@
 package org.taehyeon.welcome_pet_khackathon.Community;
 
 public class WriteInfo {
-    private String title;
-    private String Contents;
-    private String Publisher;
+    String title,Contents,Publisher,Comments,Like,Uid,Time,pid;
 
-    public WriteInfo(String title, String Contents, String Publisher) {
-        this.title = title;
-        this.Contents = Contents;
-        this.Publisher = Publisher;
+
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
     }
 
     public String getTitle() {
@@ -33,5 +34,37 @@ public class WriteInfo {
 
     public void setPublisher(String publisher) {
         Publisher = publisher;
+    }
+
+    public String getComments() {
+        return Comments;
+    }
+
+    public void setComments(String comments) {
+        Comments = comments;
+    }
+
+    public String getLike() {
+        return Like;
+    }
+
+    public void setLike(String like) {
+        Like = like;
+    }
+
+    public String getUid() {
+        return Uid;
+    }
+
+    public void setUid(String uid) {
+        Uid = uid;
+    }
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
     }
 }

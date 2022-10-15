@@ -1,5 +1,6 @@
 package org.taehyeon.welcome_pet_khackathon.Community;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -19,24 +21,32 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firestore.v1.Write;
 
 import org.taehyeon.welcome_pet_khackathon.Auth.UserAccount;
 import org.taehyeon.welcome_pet_khackathon.Auth.Userinput;
+import org.taehyeon.welcome_pet_khackathon.MainActivity;
 import org.taehyeon.welcome_pet_khackathon.R;
 import org.taehyeon.welcome_pet_khackathon.Userinfo.userinfo_Fragment;
+
+import java.util.HashMap;
+import java.util.jar.Attributes;
+
+import io.grpc.ManagedChannelProvider;
 
 
 public class WritePostFragment extends Fragment {
 
-    private static final String TAG = "WritePostFragment";
-    UserAccount userAccount = new UserAccount();
-    private FirebaseAuth Auth = FirebaseAuth.getInstance();
-    private FirebaseUser user;
+    EditText titleEt, contentsEt;
     Button button_check;
-    String name="default";
-    String title,contents;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,29 +56,24 @@ public class WritePostFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_write_post, container, false);
 
-        title = ((EditText) v.findViewById(R.id.title_editText)).getText().toString();
-        contents = ((EditText) v.findViewById(R.id.contents_editText)).getText().toString();
+        titleEt = (EditText)v.findViewById(R.id.title_editText);
+        contentsEt = (EditText)v.findViewById(R.id.contents_editText);
 
-
-        if(getArguments()!=null)
-        {
-            Toast.makeText(getContext(),"화면이 넘어옴", Toast.LENGTH_SHORT).show();
-        }
 
         button_check = v.findViewById(R.id.button_check);
         button_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final String title = ((EditText) v.findViewById(R.id.title_editText)).getText().toString();
+                final String contents = ((EditText) v.findViewById(R.id.contents_editText)).getText().toString();
+
                 if(title.length() > 0 && contents.length() > 0 ) {
-                    user = FirebaseAuth.getInstance().getCurrentUser();
-                    WriteInfo writeInfo = new WriteInfo(title, contents, user.getUid()); //유저 아이디가 들어가야함. 아이디 가져와주세요.
-                    uploader(writeInfo);
+                    uploader(title,contents);
+                    startActivity(new Intent(getActivity(), MainActivity.class));
                 } else {
-                    Toast.makeText(getContext(),"회원정보를 입력해",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"전달되지 않음.",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -76,23 +81,54 @@ public class WritePostFragment extends Fragment {
         return v;
     }
 
-    private void uploader(WriteInfo writeInfo){
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        //part10 게시글 작성 화면 구현 25:52
-        db.collection("users").add(writeInfo)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(getContext(),"성공",Toast.LENGTH_SHORT).show();
-                        Log.d(TAG,"DocumentSnapshot written with ID : "+documentReference.getId());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG,"Error adding document",e);
-                   }
+    private void uploader(String title,String content){
+        //String filePathAndName = "Posts/"+"Post_" + timeStamp;
+        FirebaseAuth Auth = FirebaseAuth.getInstance();
+        FirebaseUser user = Auth.getCurrentUser();
+        final String timeStamp = String.valueOf(System.currentTimeMillis());
+        final String id = user.getUid();
+
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("WelcomePet");
+        ref.child("UserAccount").child(id).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                WriteInfo writeInfo = new WriteInfo();
+                if(snapshot.getValue(UserAccount.class) != null) {
+                    UserAccount account = snapshot.getValue(UserAccount.class);
+                    writeInfo.setComments("0");
+                    writeInfo.setLike("0");
+                    writeInfo.setTime(timeStamp);
+                    writeInfo.setPid(timeStamp);
+                    writeInfo.setPublisher(account.getName());
+                    writeInfo.setTitle(title);
+                    writeInfo.setContents(content);
+                    writeInfo.setUid(account.getIdtoken());
+
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Posts");
+                    databaseReference.child(timeStamp).setValue(writeInfo)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getActivity(), "Post Publisher...", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(getActivity(), "실패"+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+                else {
+                    Toast.makeText(getContext(), "데이터 없음...", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
         });
     }
-
 }

@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.taehyeon.welcome_pet_khackathon.Community.WritePostFragment;
 import org.taehyeon.welcome_pet_khackathon.Community.community_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Experience.experience_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Home.home_Fragment;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     shop_Fragment fragment_shop = new shop_Fragment();
     community_Fragment fragment_community = new community_Fragment();
     experience_Fragment fragment_experience = new experience_Fragment();
+    WritePostFragment fragment_write_post = new WritePostFragment();
 
 
     @Override
@@ -66,6 +68,13 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
             return true;
+        }
+    }
+    public void onFragmentChange(int index){
+        if(index == 0){
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_main,fragment_community).commitAllowingStateLoss();
+        }else if(index == 1){
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_main,fragment_write_post).commitAllowingStateLoss();
         }
     }
 }

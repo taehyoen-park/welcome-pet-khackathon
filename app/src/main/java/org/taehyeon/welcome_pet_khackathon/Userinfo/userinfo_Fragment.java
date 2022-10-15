@@ -43,7 +43,7 @@ public class userinfo_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_userinfo_, container, false);
 
-        username = v.findViewById(R.id.username);
+        username = v.findViewById(R.id.UserName);
         useremail = v.findViewById(R.id.useremail);
         userjob = v.findViewById(R.id.userjob);
         userphone = v.findViewById(R.id.userphone);
