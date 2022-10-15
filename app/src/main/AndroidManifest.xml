@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         <activity
+            android:name=".Community.postModify"
+            android:exported="false" />
+        <activity
+            android:name=".Community.postDetail"
+            android:exported="false" />
+        <activity
             android:name=".Alarm.Destination"
             android:exported="false" />
         <activity

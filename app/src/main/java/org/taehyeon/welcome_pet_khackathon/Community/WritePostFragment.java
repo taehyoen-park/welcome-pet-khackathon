@@ -131,4 +131,10 @@ public class WritePostFragment extends Fragment {
             }
         });
     }
+
+
+
+
+
+
 }

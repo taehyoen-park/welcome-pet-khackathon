@@ -28,8 +28,6 @@ public class PasswordReset extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password_reset);
 
-
-
         Button btn = findViewById(R.id.sendbutton);
 
         btn.setOnClickListener(new View.OnClickListener() {

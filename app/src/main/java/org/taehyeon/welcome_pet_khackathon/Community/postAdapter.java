@@ -3,14 +3,19 @@ package org.taehyeon.welcome_pet_khackathon.Community;
 import android.content.Context;
 import android.content.Intent;
 import android.text.format.DateFormat;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import org.taehyeon.welcome_pet_khackathon.R;
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.utils.widget.ImageFilterButton;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
+
+import io.grpc.ManagedChannelProvider;
 
 public class postAdapter extends RecyclerView.Adapter<postAdapter.ViewHolder> {
     Context context;
@@ -79,7 +86,6 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.ViewHolder> {
         setLikes(viewHolder,pId);
         viewHolder.profile.setImageResource(R.drawable.user);
 
-
         viewHolder.image_like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,10 +125,19 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.ViewHolder> {
         viewHolder.image_comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(context, PostDetailActivity.class);
-//                intent.putExtra("postId",pId);
-//                context.startActivity(intent);
+                Intent intent = new Intent(context, postDetail.class);
+                intent.putExtra("postId",pId);
+                context.startActivity(intent);
 
+            }
+        });
+
+        viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, postDetail.class);
+                intent.putExtra("postId",pId);
+                context.startActivity(intent);
             }
         });
     }
@@ -134,12 +149,10 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.ViewHolder> {
                 if (snapshot.child(postKey).hasChild(myUid)){
                     //user has liked this post
                     holder.image_like.setImageResource(R.drawable.heart2);
-                    //holder.textlike.setText("Liked");
                 }
                 else {
                     //user has not liked this post
                     holder.image_like.setImageResource(R.drawable.heart1);
-                    //holder.textlike.setText("Like");
                 }
             }
 
@@ -157,7 +170,6 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.ViewHolder> {
         return list.size();
     }
 
-
     public WriteInfo getItem(int position) {
         return list.get(position);
     }
@@ -171,7 +183,7 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.ViewHolder> {
         TextView textcomment;
         ImageButton image_like,image_comment;
         ImageView profile;
-
+        CardView cardView;
 
         public ViewHolder(View itemView, final onDataItemClickListener listener) {
             super(itemView);
@@ -185,7 +197,7 @@ public class postAdapter extends RecyclerView.Adapter<postAdapter.ViewHolder> {
             image_comment = itemView.findViewById(R.id.comment_btn);
             image_like = itemView.findViewById(R.id.like_btn);
             profile = itemView.findViewById(R.id.profile);
-
+            cardView = itemView.findViewById(R.id.card_view);
         }
 
         public void setItem(WriteInfo item) {

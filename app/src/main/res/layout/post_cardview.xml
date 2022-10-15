@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
+    android:layout_margin="10dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:elevation="10dp"
+        android:onClick="True"
         card_view:cardCornerRadius="4dp">
 
 
@@ -76,8 +77,6 @@
 
 
         </LinearLayout>
-
-
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
@@ -102,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:hint=" Likes"
+            android:hint=" Comments"
             android:padding="3dp" />
 
         <androidx.appcompat.widget.AppCompatImageButton
@@ -119,10 +118,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint=" Comments"
+            android:hint=" Likes"
             android:padding="3dp"
             android:textAlignment="textEnd" />
 
     </LinearLayout>
+
+
+
 
 </LinearLayout>
