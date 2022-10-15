@@ -1,5 +1,6 @@
 package org.taehyeon.welcome_pet_khackathon.Userinfo;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -23,9 +24,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.taehyeon.welcome_pet_khackathon.Auth.Login;
 import org.taehyeon.welcome_pet_khackathon.Auth.UserAccount;
 import org.taehyeon.welcome_pet_khackathon.MainActivity;
 import org.taehyeon.welcome_pet_khackathon.R;
+import org.taehyeon.welcome_pet_khackathon.Start_survey.survey;
 
 
 public class userinfo_Fragment extends Fragment {
@@ -55,7 +58,10 @@ public class userinfo_Fragment extends Fragment {
         logout_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Auth.signOut();
+                Auth.getInstance().signOut();
+                Intent intent = new Intent(getActivity(), Login.class);
+                startActivity(intent);
+                getActivity().finish();
             }
         });
 
