@@ -31,7 +31,7 @@ import org.taehyeon.welcome_pet_khackathon.R;
 public class userinfo_Fragment extends Fragment {
 
     TextView username,userjob,useremail,userphone;
-    Button btn_certi;
+    Button btn_certi,logout_btn;
 
     private FirebaseAuth Auth = FirebaseAuth.getInstance();
     private FirebaseUser User;
@@ -48,6 +48,16 @@ public class userinfo_Fragment extends Fragment {
         userjob = v.findViewById(R.id.userjob);
         userphone = v.findViewById(R.id.userphone);
         btn_certi = v.findViewById(R.id.certified);
+        logout_btn = v.findViewById(R.id.logout_btn);
+
+        Auth = FirebaseAuth.getInstance();
+
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Auth.signOut();
+            }
+        });
 
        // UserAccount account = new UserAccount();
         User = Auth.getCurrentUser();

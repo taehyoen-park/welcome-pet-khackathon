@@ -33,16 +33,35 @@
                     android:layout_gravity="center"
                     android:padding="5dp"
                     android:text="AR로 확인하기"
+                    android:gravity="center"
                     android:textSize="18sp" />
 
                 <Button
-                    android:id="@+id/button_ar"
-                    android:layout_width="match_parent"
+                    android:id="@+id/button_info_ar"
+                    android:layout_width="335dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="7dp"
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="AR로 보기" />
+
+                <TextView
+                    android:id="@+id/title4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:text="위 버튼을 눌러 AR 체험을 시작하세요!"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:textSize="10sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#888686"
+                    android:padding="3dp" />
 
                 <TextView
                     android:id="@+id/textView3"
@@ -52,13 +71,14 @@
                     android:paddingStart="5dp"
                     android:paddingTop="50dp"
                     android:paddingBottom="5dp"
+                    android:gravity="center"
                     android:text="설명 바로 보기"
                     android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/button_exp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="335dp"
+                    android:layout_height="46dp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="5dp"

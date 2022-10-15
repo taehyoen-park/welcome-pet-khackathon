@@ -12,8 +12,9 @@
         android:layout_width="400dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:text="    당신과 어울리는 강아지는?"
+        android:text="당신과 어울리는 강아지는?"
         android:textSize="30dp"
+        android:gravity="center"
         android:layout_marginTop="10dp"
         android:textColor="#FFB085">
     </TextView>
@@ -24,6 +25,7 @@
         android:layout_gravity="center"
         android:text="미지정"
         android:textSize="35dp"
+        android:gravity="center"
         android:textColor="#F9D5A7"
         android:layout_marginTop="5dp"
         android:id="@+id/spname">
