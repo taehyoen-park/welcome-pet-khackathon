@@ -195,6 +195,11 @@ public class survey2 extends AppCompatActivity {
         Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show();
 
         //화면 전환
+        // 값 넘겨줘서 progress바 화면 나타나게 하는거
+        Intent intent3 = new Intent(getApplicationContext(), MainActivity.class);
+        intent3.putExtra("progress","set");
+        startActivity(intent3);
+        finish();
 
         
     }
