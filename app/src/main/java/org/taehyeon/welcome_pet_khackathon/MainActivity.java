@@ -15,6 +15,7 @@ import org.taehyeon.welcome_pet_khackathon.Community.WritePostFragment;
 import org.taehyeon.welcome_pet_khackathon.Community.community_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Experience.experience_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Home.home_Fragment;
+import org.taehyeon.welcome_pet_khackathon.Home.progress_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Shop.shop_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Userinfo.userinfo_Fragment;
 
@@ -27,20 +28,24 @@ public class MainActivity extends AppCompatActivity {
     community_Fragment fragment_community = new community_Fragment();
     experience_Fragment fragment_experience = new experience_Fragment();
     WritePostFragment fragment_write_post = new WritePostFragment();
-
+    progress_Fragment fragment_progress = new progress_Fragment();
+    String progress = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // survey2에서 받은 intent값 설정
+        // 한번 바뀌면 계속 프로그래스 바 화면 나타나게 할거임
+        Intent intent = getIntent();
+        progress = intent.getStringExtra("progress");
+
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
-
-
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -58,7 +63,13 @@ public class MainActivity extends AppCompatActivity {
                     transaction.replace(R.id.frameLayout_main, fragment_experience).addToBackStack(null).commitAllowingStateLoss();
                     break;
                 case R.id.HomeItem:
-                    transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
+                    if(progress != null)
+                    {
+                        transaction.replace(R.id.frameLayout_main, fragment_progress).addToBackStack(null).commitAllowingStateLoss();
+                    }
+                    else {
+                        transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
+                    }
                     break;
                 case R.id.CommunityItem:
                     transaction.replace(R.id.frameLayout_main, fragment_community).commitAllowingStateLoss();
