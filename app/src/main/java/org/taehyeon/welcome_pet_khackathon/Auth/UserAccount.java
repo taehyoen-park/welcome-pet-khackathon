@@ -1,17 +1,19 @@
 package org.taehyeon.welcome_pet_khackathon.Auth;
 
 public class UserAccount {
-    private String pw,name,email,phone,check,Frequency;
-    private String Idtoken;
+    private String pw,name,email,phone,check,Idtoken,job;
+
     public UserAccount(){ }
 
-    public String getFrequency() {
-        return Frequency;
+
+    public String getJob() {
+        return job;
     }
 
-    public void setFrequency(String frequency) {
-        Frequency = frequency;
+    public void setJob(String job) {
+        this.job = job;
     }
+
 
     public String getCheck() {
         return check;
@@ -52,6 +54,8 @@ public class UserAccount {
         return Idtoken;
     }
     public void setIdtoken(String idtoken) {
-        Idtoken = idtoken;
+        this.Idtoken = Idtoken;
     }
+
+
 }

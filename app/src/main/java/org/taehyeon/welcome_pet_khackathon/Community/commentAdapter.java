@@ -1,12 +1,15 @@
 package org.taehyeon.welcome_pet_khackathon.Community;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,12 +17,19 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.auth.User;
 
+import org.taehyeon.welcome_pet_khackathon.Auth.UserAccount;
+import org.taehyeon.welcome_pet_khackathon.Community.CustomDialog;
+import org.taehyeon.welcome_pet_khackathon.MainActivity;
 import org.taehyeon.welcome_pet_khackathon.R;
 
 import java.util.Calendar;
@@ -59,7 +69,7 @@ public class commentAdapter extends RecyclerView.Adapter<commentAdapter.MyHolder
 
         Calendar calendar = Calendar.getInstance(Locale.getDefault());
         calendar.setTimeInMillis(Long.parseLong(time));
-        String pTime = DateFormat.format("dd/MM/yyyy hh:mm aa",calendar).toString();
+        String pTime = DateFormat.format("yyyy/MM/dd hh:mm aa",calendar).toString();
 
         holder.nameTv.setText(name);
         holder.commentTv.setText(comment);
@@ -69,29 +79,65 @@ public class commentAdapter extends RecyclerView.Adapter<commentAdapter.MyHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (myUid.equals(uid)){
-                    final AlertDialog.Builder builder = new AlertDialog.Builder(v.getRootView().getContext());
-                    builder.setTitle("Delete");
-                    builder.setMessage("이 댓글을 지우시겠습니까?");
-                    builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            deleteComment(cid);
-                        }
-                    });
-                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Posts").child(postId).child("tcomments");
+                ref.child(cid).child("uid").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        final String id = snapshot.getValue(String.class);
 
+                        if (myUid.equals(uid)){
+                            final AlertDialog.Builder builder = new AlertDialog.Builder(v.getRootView().getContext());
+                            builder.setTitle("Delete");
+                            builder.setMessage("이 댓글을 지우시겠습니까?");
+                            builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    deleteComment(cid);
+                                }
+                            });
+                            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Toast.makeText(context.getApplicationContext(),"실패ㅔㅠ",Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            builder.create().show();
                         }
-                    });
-                    builder.create().show();
-                }
-                else {
-                    Toast.makeText(context, "Can't delete other's comment....", Toast.LENGTH_SHORT).show();
+                        else {
 
-                }
-            }
+                            DatabaseReference ref2 = FirebaseDatabase.getInstance().getReference("WelcomePet");
+                            ref2.child("UserAccount").child(id).addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    UserAccount account = snapshot.getValue(UserAccount.class);
+                                    String a = account.getJob();
+                                    if (a.equals("1")) {
+                                        Dialog dialog = new Dialog(v.getRootView().getContext());
+                                        dialog.setContentView(R.layout.activity_expert_user);
+                                        dialog.show();
+                                    } else {
+                                        Toast.makeText(context, "" + account.getJob(), Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(context, "Can't delete other's comment....", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            }//onclick
         });
     }
 
