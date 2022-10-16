@@ -10,26 +10,24 @@
 
     <TextView
         android:layout_width="400dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="당신과 어울리는 강아지는?"
-        android:textSize="30dp"
-        android:gravity="center"
         android:layout_marginTop="10dp"
-        android:textColor="#FFB085">
-    </TextView>
+        android:gravity="center"
+        android:text="당신과 어울리는 강아지는?"
+        android:textColor="#FFB085"
+        android:textSize="20dp"></TextView>
 
     <TextView
+        android:id="@+id/spname"
         android:layout_width="400dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="미지정"
-        android:textSize="35dp"
-        android:gravity="center"
-        android:textColor="#F9D5A7"
         android:layout_marginTop="5dp"
-        android:id="@+id/spname">
-    </TextView>
+        android:gravity="center"
+        android:text="미지정"
+        android:textColor="#F9D5A7"
+        android:textSize="35dp"></TextView>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="200dp"
@@ -54,12 +52,22 @@
             android:layout_width="320dp"
             android:layout_height="140dp"
             android:text="미지정"
-            android:textSize="18dp"
+            android:textSize="17dp"
             android:id="@+id/dogtext">
         </TextView>
 
 
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/dogtext2"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="당신과 어울리는 강아지는 shop에서 구매하여 체험하세요.\n 현재체험은 임의의 강아지로 시작됩니다."
+        android:textSize="13dp"></TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,22 +77,23 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/setAlarmBtn"
-        android:layout_width="160dp"
+        android:layout_width="130dp"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="26dp"
+        android:layout_marginHorizontal="30dp"
         android:background="@drawable/login_button_bk"
         android:text="체험 시작"
-        android:textSize="20dp"/>
+        android:textSize="18dp"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/cancelAlarmBtn"
-        android:layout_width="match_parent"
+        android:layout_width="130dp"
         android:layout_height="60dp"
-        android:layout_marginHorizontal="26dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/login_button_bk"
         android:text="체험 취소"
-        android:textSize="20dp" />
+        android:textSize="18dp" />
     </LinearLayout>
 </LinearLayout>
