@@ -10,7 +10,15 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import org.taehyeon.welcome_pet_khackathon.Auth.UserAccount;
 import org.taehyeon.welcome_pet_khackathon.Community.WritePostFragment;
 import org.taehyeon.welcome_pet_khackathon.Community.community_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Experience.experience_Fragment;
@@ -37,21 +45,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent9 = getIntent();
-        if(intent9.hasExtra("chage"))
-            c = intent9.getIntExtra("chage",1);
-        else
-            c = 0;
 
-        if(c == 0){
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
-        }
-        else
-        {
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
-        }
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("WelcomePet").child("UserAccount");
+        ref.child(user.getUid()).orderByChild("check").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.getValue(UserAccount.class) != null) {
+                    UserAccount account = snapshot.getValue(UserAccount.class);
+                    if(account.getCheck() == 0){
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
+                    }
+                    else
+                    {
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
@@ -74,12 +93,27 @@ public class MainActivity extends AppCompatActivity {
                     transaction.replace(R.id.frameLayout_main, fragment_experience).addToBackStack(null).commitAllowingStateLoss();
                     break;
                 case R.id.HomeItem:
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("WelcomePet").child("UserAccount");
+                    ref.child(user.getUid()).orderByChild("check").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if(snapshot.getValue(UserAccount.class) != null) {
+                                UserAccount account = snapshot.getValue(UserAccount.class);
+                                if(account.getCheck() == 0){
+                                    transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
+                                }
+                                else
+                                {
+                                    transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
+                                }
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    if(c == 0)
-                        transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
-                    if(c == 1)
-                        transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
-
+                        }
+                    });
                     break;
                 case R.id.CommunityItem:
                     transaction.replace(R.id.frameLayout_main, fragment_community).commitAllowingStateLoss();

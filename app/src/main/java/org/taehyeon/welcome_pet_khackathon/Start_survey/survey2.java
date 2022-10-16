@@ -1,5 +1,6 @@
 package org.taehyeon.welcome_pet_khackathon.Start_survey;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
@@ -19,8 +20,16 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.taehyeon.welcome_pet_khackathon.Alarm.AlarmReciver;
 import org.taehyeon.welcome_pet_khackathon.Auth.Login;
 import org.taehyeon.welcome_pet_khackathon.Experience.experience_Fragment;
@@ -31,6 +40,7 @@ import org.taehyeon.welcome_pet_khackathon.Shop.shop_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Userinfo.userinfo_Fragment;
 import org.taehyeon.welcome_pet_khackathon.databinding.ActivitySurvey2Binding;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -198,39 +208,27 @@ public class survey2 extends AppCompatActivity {
 
         Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show();
         Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
-        intent2.putExtra("chage",1);
-        startActivity(intent2);
 
+        HashMap<String,Object> hashMap = new HashMap<>();
+        hashMap.put("check",1);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("WelcomePet").child("UserAccount");
+        ref.child(user.getUid()).updateChildren(hashMap)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(getApplicationContext(), "성공...", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getApplicationContext(), "실패...", Toast.LENGTH_SHORT).show();
+            }
+        });
+        startActivity(intent2);
     }
 
-
-//    private void showTimePicker() {
-//        picker = new MaterialTimePicker.Builder()
-//                .setTimeFormat(TimeFormat.CLOCK_12H)
-//                .setHour(12)
-//                .setMinute(0)
-//                .setTitleText("Select Alarm Time")
-//                .build();
-//
-//        picker.show(getSupportFragmentManager(),"foxandroid");
-//        picker.addOnPositiveButtonClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                if (picker.getHour() > 12) {
-//                    binding.selectedTime.setText(String.format("%02d",(picker.getHour()-12))+" : "+String.format("%02d",picker.getMinute())+" PM");
-//                }
-//                else { binding.selectedTime.setText(picker.getHour()+" : " + picker.getMinute() + " AM"); }
-//
-//                calendar = Calendar.getInstance();
-//                calendar.set(Calendar.HOUR_OF_DAY,picker.getHour());
-//                calendar.set(Calendar.MINUTE,picker.getMinute());
-//                calendar.set(Calendar.SECOND,0);
-//                calendar.set(Calendar.MILLISECOND,0);
-//
-//            }
-//        });
-//    }
 
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
