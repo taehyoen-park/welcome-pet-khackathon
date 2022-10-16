@@ -29,7 +29,6 @@ import org.taehyeon.welcome_pet_khackathon.Userinfo.userinfo_Fragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    FragmentManager fragmentManager = getSupportFragmentManager();
     home_Fragment fragment_home = new home_Fragment();
     userinfo_Fragment fragment_userinfo = new userinfo_Fragment();
     shop_Fragment fragment_shop = new shop_Fragment();
@@ -38,30 +37,38 @@ public class MainActivity extends AppCompatActivity {
     WritePostFragment fragment_write_post = new WritePostFragment();
     progress_Fragment fragment_progress = new progress_Fragment();
 
-    int c = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("WelcomePet").child("UserAccount");
-        ref.child(user.getUid()).orderByChild("check").addValueEventListener(new ValueEventListener() {
+        ref.child(user.getUid()).child("check").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.getValue(UserAccount.class) != null) {
-                    UserAccount account = snapshot.getValue(UserAccount.class);
-                    if(account.getCheck() == 0){
+                if(snapshot.getValue(String.class) != null) {
+                    String str = snapshot.getValue(String.class);
+                    if(str.equals("chx")){
+                        FragmentManager fragmentManager = getSupportFragmentManager();
                         FragmentTransaction transaction = fragmentManager.beginTransaction();
                         transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
                     }
                     else
                     {
+                        FragmentManager fragmentManager = getSupportFragmentManager();
                         FragmentTransaction transaction = fragmentManager.beginTransaction();
-                        transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
+                        Intent i = getIntent();
+                        if(i == null){
+                            transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
+                        }
+                        else{
+                            String a = i.getStringExtra("val");
+                            Bundle bundle = new Bundle();
+                            bundle.putString("val",a);
+                            fragment_progress.setArguments(bundle);
+                            transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
+                        }
                     }
                 }
             }
@@ -79,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
-
             switch(menuItem.getItemId())
             {
                 case R.id.UserinfoItem:
@@ -90,21 +97,19 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.experienceItem:
                     transaction.replace(R.id.frameLayout_main, fragment_experience).addToBackStack(null).commitAllowingStateLoss();
                     break;
+
                 case R.id.HomeItem:
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference("WelcomePet").child("UserAccount");
-                    ref.child(user.getUid()).orderByChild("check").addValueEventListener(new ValueEventListener() {
+                    ref.child(user.getUid()).child("check").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if(snapshot.getValue(UserAccount.class) != null) {
-                                UserAccount account = snapshot.getValue(UserAccount.class);
-                                if(account.getCheck() == 0){
+                            if(snapshot.getValue(String.class) != null) {
+                                String str = snapshot.getValue(String.class);
+                                if(str.equals("chx")){
                                     transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
                                 }
-                                else
-                                {
-                                    Intent intent10 = getIntent();
-                                    int val = intent10.getIntExtra("value",1);
+                                else {
                                     transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
                                 }
                             }
@@ -115,9 +120,11 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                     break;
+
                 case R.id.CommunityItem:
                     transaction.replace(R.id.frameLayout_main, fragment_community).commitAllowingStateLoss();
                     break;
+
                 case R.id.ShopItem:
                     transaction.replace(R.id.frameLayout_main, fragment_shop).commitAllowingStateLoss();
                     break;
@@ -125,6 +132,8 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
+
+
 
     public void onFragmentChange(int index){
         if(index == 0){

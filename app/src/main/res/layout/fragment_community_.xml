@@ -26,13 +26,15 @@
                 android:paddingTop="8dp"
                 android:text="게시판"
                 android:textColor="#F9D5A7"
-                android:textSize="35dp"></TextView>
+                android:textSize="35dp">
+
+            </TextView>
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/Button_add"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="bottom|"
+                android:layout_gravity="bottom"
                 android:layout_margin="10dp"
                 android:background="#fff"
                 android:scaleType="fitCenter"

@@ -26,7 +26,7 @@ public class AlarmReciver extends BroadcastReceiver {
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setContentIntent(pendingIntent);
 
-        if(count > 8) count = 0;
+        if(count >= 4) count = 0;
         else count++;
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
         notificationManagerCompat.notify(123,builder.build());

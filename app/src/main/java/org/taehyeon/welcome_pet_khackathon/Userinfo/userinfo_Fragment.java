@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,6 +33,8 @@ import org.taehyeon.welcome_pet_khackathon.Auth.UserAccount;
 import org.taehyeon.welcome_pet_khackathon.MainActivity;
 import org.taehyeon.welcome_pet_khackathon.R;
 import org.taehyeon.welcome_pet_khackathon.Start_survey.survey;
+
+import java.util.HashMap;
 
 
 public class userinfo_Fragment extends Fragment {
@@ -55,8 +59,6 @@ public class userinfo_Fragment extends Fragment {
         btn_certi = v.findViewById(R.id.certified);
         logout_btn = v.findViewById(R.id.logout_btn);
 
-        Auth = FirebaseAuth.getInstance();
-
         logout_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,13 +81,32 @@ public class userinfo_Fragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(getContext(),"현재는 인증할 수 없습니다.",Toast.LENGTH_SHORT).show();
 
-                        //displayToast("ok");
+                        HashMap<String,Object> hashMap = new HashMap<>();
+                        hashMap.put("job","pro");
+
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("WelcomePet");
+                        ref.child("UserAccount").child(user.getUid()).updateChildren(hashMap)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Toast.makeText(getActivity(), "성공...", Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+
+                                    }
+                                });
+
                     }
-                });//onClickListner : ok누르면 뭘할지,
+                });
                 dig.setNegativeButton("no", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(getContext(),"취소 되었습니다.",Toast.LENGTH_SHORT).show();
+
 
                         //displayToast("no");
                     }
@@ -94,11 +115,9 @@ public class userinfo_Fragment extends Fragment {
             }
         });
 
-
         User = Auth.getCurrentUser();
-        dataRef = FirebaseDatabase.getInstance().getReference("WelcomePet");
-
         id = User.getUid();
+        dataRef = FirebaseDatabase.getInstance().getReference("WelcomePet");
         dataRef.child("UserAccount").child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

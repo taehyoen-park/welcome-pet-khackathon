@@ -206,7 +206,7 @@ public class postDetail extends AppCompatActivity {
 
                     Calendar calendar = Calendar.getInstance(Locale.getDefault());
                     calendar.setTimeInMillis(Long.parseLong(pTimeStamp));
-                    String pTime = DateFormat.format("dd/MM/yyyy hh:mm aa",calendar).toString();
+                    String pTime = DateFormat.format("yyyy/MM/dd hh:mm aa",calendar).toString();
 
                     pTitleTv.setText(pTitle);
                     pDescriptionTv.setText(pDescription);

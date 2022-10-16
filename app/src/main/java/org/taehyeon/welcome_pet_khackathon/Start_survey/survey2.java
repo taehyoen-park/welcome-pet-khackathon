@@ -207,10 +207,10 @@ public class survey2 extends AppCompatActivity {
                 5000/*AlarmManager.INTERVAL_DAY*/,pendingIntent);
 
         Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show();
-        Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
+        Intent intent2 = new Intent(survey2.this, MainActivity.class);
 
         HashMap<String,Object> hashMap = new HashMap<>();
-        hashMap.put("check",1);
+        hashMap.put("check","ch");
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("WelcomePet").child("UserAccount");
@@ -218,12 +218,12 @@ public class survey2 extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(getApplicationContext(), "성공...", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "성공...", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), "실패...", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "실패...", Toast.LENGTH_SHORT).show();
             }
         });
         startActivity(intent2);

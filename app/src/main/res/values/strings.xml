@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">welcome-pet-khackathon</string>
+    <string name="app_name">어반처</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="name" translatable="false">어서와,반려견은 처음이지?</string>

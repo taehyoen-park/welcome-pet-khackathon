@@ -65,12 +65,17 @@ public class Userinput extends AppCompatActivity {
                         {
                                 FirebaseUser firebaseUser = mfirebaseAuth.getCurrentUser();
                                 UserAccount account = new UserAccount();
+                                //c -> chx or ch    c2 -> gen or pro
+                                final String c = "chx",c2 = "gen";
+
                                 account.setIdtoken((firebaseUser.getUid()));
                                 account.setEmail(firebaseUser.getEmail());
                                 account.setPhone(str_phone);
                                 account.setName(str_name);
                                 account.setPw(str_PW);
-                                account.setCheck(0);
+                                account.setCheck(c);
+                                account.setJob(c2);
+                                //account.setCount(1);
 
                                 mdataRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
                                 Toast.makeText(Userinput.this,"회원가입에 성공하셨습니다.",Toast.LENGTH_SHORT).show();

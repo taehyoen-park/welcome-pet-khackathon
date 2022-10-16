@@ -50,12 +50,6 @@ public class Login extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                Toast.makeText(Login.this,"로그인을 성공하셨습니다!",Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//                startActivity(intent);
-
-
                 String str_id = et_id.getText().toString();
                 String str_pw = et_pw.getText().toString();
                 if(str_id.equals("")){Toast.makeText(Login.this,"이메일을 확인해주세요",Toast.LENGTH_SHORT).show();return;}

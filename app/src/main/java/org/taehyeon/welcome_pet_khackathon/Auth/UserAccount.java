@@ -1,26 +1,36 @@
 package org.taehyeon.welcome_pet_khackathon.Auth;
 
 public class UserAccount {
-    private String pw,name,email,phone;
-    private int check,job;
-    private String Idtoken;
+    // check는 프개르먼트 유지 job은 직업
+    private String pw,name,email,phone,check,Idtoken,job;
+    //  private int count;
+
     public UserAccount(){ }
 
+//    public int getCount() {
+//        return count;
+//    }
+//
+//    public void setCount(int count) {
+//        this.count = count;
+//    }
 
-    public int getJob() {
+    public String getJob() {
         return job;
     }
 
-    public void setJob(int job) {
+    public void setJob(String job) {
         this.job = job;
     }
 
-    public int getCheck() {
+
+    public String getCheck() {
         return check;
     }
-    public void setCheck(int check) {
+    public void setCheck(String check) {
         this.check = check;
     }
+
 
     public String getPw() {
         return pw;
@@ -29,12 +39,14 @@ public class UserAccount {
         this.pw = pw;
     }
 
+
     public String getName() {
         return name;
     }
     public void setName(String name) {
         this.name = name;
     }
+
 
     public String getEmail() {
         return email;
@@ -43,6 +55,7 @@ public class UserAccount {
         this.email = email;
     }
 
+
     public String getPhone() {
         return phone;
     }
@@ -50,10 +63,13 @@ public class UserAccount {
         this.phone = phone;
     }
 
+
     public String getIdtoken() {
         return Idtoken;
     }
-    public void setIdtoken(String idtoken) {
-        Idtoken = idtoken;
+    public void setIdtoken(String Idtoken) {
+        this.Idtoken = Idtoken;
     }
+
+
 }
