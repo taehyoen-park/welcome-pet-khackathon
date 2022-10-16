@@ -12,8 +12,7 @@ public class commentInfo {
         this.comment = comment;
         this.timeStamp = timeStamp;
         this.uid = uid;
-
-        Name = name;
+        this.Name = name;
     }
 
     public String getcId() {
@@ -54,6 +53,6 @@ public class commentInfo {
     }
 
     public void setName(String name) {
-        Name = name;
+        this.Name = name;
     }
 }

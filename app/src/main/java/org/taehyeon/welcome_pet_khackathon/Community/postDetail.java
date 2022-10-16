@@ -121,7 +121,6 @@ public class postDetail extends AppCompatActivity {
     }
 
 
-
     private void postComment() {
         //get data from comment edit text
         String comment = commentEt.getText().toString().trim();
@@ -276,7 +275,7 @@ public class postDetail extends AppCompatActivity {
                 }
                 else if (i == 1) {
                     Intent intent = new Intent(postDetail.this, postModify.class);
-                    intent.putExtra("key", "editPost");
+                    intent.putExtra("key", 123);
                     intent.putExtra("editPostId", postId);
                     startActivity(intent);
                 }
@@ -359,8 +358,8 @@ public class postDetail extends AppCompatActivity {
     private void loadUserInfo() {
         FirebaseUser User = FirebaseAuth.getInstance().getCurrentUser();
         myUid = User.getUid();
-        Query mRef = FirebaseDatabase.getInstance().getReference("WelcomePet");
-        mRef.orderByChild("UserAccount").equalTo(myUid).addListenerForSingleValueEvent(new ValueEventListener() {
+        Query mRef = FirebaseDatabase.getInstance().getReference("WelcomePet").child("UserAccount");
+        mRef.orderByChild("idtoken").equalTo(myUid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {

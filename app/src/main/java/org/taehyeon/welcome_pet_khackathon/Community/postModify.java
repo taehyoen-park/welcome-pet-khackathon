@@ -39,16 +39,16 @@ public class postModify extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        final String isUpdateKey = ""+intent.getStringExtra("key");
+        final int isUpdateKey = intent.getIntExtra("key",123);
         final String editPostId= ""+intent.getStringExtra("editPostId");
 
         titleEt = (EditText)findViewById(R.id.title_editText_modify);
         contentsEt = (EditText)findViewById(R.id.contents_editText_modify);
 
         button_check = findViewById(R.id.button_check_modify);
-        if (isUpdateKey.equals("editPost")){
+        if (isUpdateKey == 123){
 
-            button_check.setText("수정 완료");
+            button_check.setText("수정");
             loadPostData(editPostId);
         }
         else {
@@ -58,11 +58,12 @@ public class postModify extends AppCompatActivity {
         button_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String title = ((EditText) findViewById(R.id.title_editText)).getText().toString();
-                final String contents = ((EditText) findViewById(R.id.contents_editText)).getText().toString();
+                final String title = ((EditText) findViewById(R.id.title_editText_modify)).getText().toString();
+                final String contents = ((EditText) findViewById(R.id.contents_editText_modify)).getText().toString();
 
                 if(title.length() > 0 && contents.length() > 0 ) {
-                    if (isUpdateKey.equals("editPost")){
+                    if (isUpdateKey == 123){
+                        Toast.makeText(getApplicationContext(),""+editPostId,Toast.LENGTH_SHORT).show();
                         updatePost(title,contents,editPostId);
                     }
                     else {
