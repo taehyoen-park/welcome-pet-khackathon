@@ -94,7 +94,7 @@ public class userinfo_Fragment extends Fragment {
             }
         });
 
-       // UserAccount account = new UserAccount();
+
         User = Auth.getCurrentUser();
         dataRef = FirebaseDatabase.getInstance().getReference("WelcomePet");
 

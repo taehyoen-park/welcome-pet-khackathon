@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("WelcomePet").child("UserAccount");
         ref.child(user.getUid()).orderByChild("check").addValueEventListener(new ValueEventListener() {
@@ -71,11 +72,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
-
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -105,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 else
                                 {
+                                    Intent intent10 = getIntent();
+                                    int val = intent10.getIntExtra("value",1);
                                     transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
                                 }
                             }

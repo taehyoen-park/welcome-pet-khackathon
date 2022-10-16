@@ -15,12 +15,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <TextView
-                android:layout_width="349dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/font_outline"
                 android:paddingLeft="7dp"
                 android:paddingTop="8dp"
@@ -29,14 +29,13 @@
                 android:textSize="35dp"></TextView>
 
             <androidx.appcompat.widget.AppCompatImageButton
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_margin="10dp"
-                android:layout_gravity="center"
-                android:background="#fff"
-                android:layout_weight="1"
-                android:scaleType="centerCrop"
                 android:id="@+id/Button_add"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom|"
+                android:layout_margin="10dp"
+                android:background="#fff"
+                android:scaleType="fitCenter"
                 android:src="@drawable/add" />
 
         </LinearLayout>
@@ -48,15 +47,21 @@
             android:padding="3dp" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/postrecycle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="7dp"
-            android:id="@+id/postrecycle"
             android:layout_marginBottom="60dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="7dp">
+
+
+
 
 
         </androidx.recyclerview.widget.RecyclerView>
+
+
+
 
 
     </LinearLayout>
