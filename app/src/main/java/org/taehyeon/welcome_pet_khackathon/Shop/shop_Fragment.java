@@ -118,7 +118,7 @@ public class shop_Fragment extends Fragment {
     public void show() {
         AlertDialog.Builder dig = new AlertDialog.Builder(getContext());
 
-        dig.setTitle("구매하기");
+        dig.setTitle("2300₩ 구매하기");
         dig.setMessage("해당 강아지로 체험하시겠습니까?\n한 번 구매한 후에는 자동 소장됩니다.");
         dig.setIcon(R.drawable.ic_launcher_foreground).setPositiveButton("ok", new DialogInterface.OnClickListener() {
             @Override
