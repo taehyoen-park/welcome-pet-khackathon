@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:elevation="8dp"
+    android:elevation="10dp"
     android:layout_gravity="center"
     android:layout_width="350dp"
     android:layout_height="500dp"
@@ -36,8 +36,8 @@
 
             <EditText
                 android:id="@+id/enter_ID"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:hint="이메일"
@@ -54,8 +54,8 @@
 
             <EditText
                 android:id="@+id/enter_PW"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:hint="비밀번호"
