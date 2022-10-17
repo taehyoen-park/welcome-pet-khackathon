@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +25,10 @@ import com.google.firebase.database.ValueEventListener;
 import org.taehyeon.welcome_pet_khackathon.Auth.UserAccount;
 import org.taehyeon.welcome_pet_khackathon.Community.WritePostFragment;
 import org.taehyeon.welcome_pet_khackathon.Community.community_Fragment;
+import org.taehyeon.welcome_pet_khackathon.Experience.OnBackPressedListener;
+import org.taehyeon.welcome_pet_khackathon.Experience.PagerAdapter;
 import org.taehyeon.welcome_pet_khackathon.Experience.experience_Fragment;
+import org.taehyeon.welcome_pet_khackathon.Experience.experience_Fragment2;
 import org.taehyeon.welcome_pet_khackathon.Home.home_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Home.progress_Fragment;
 import org.taehyeon.welcome_pet_khackathon.Shop.shop_Fragment;
@@ -37,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
     experience_Fragment fragment_experience = new experience_Fragment();
     WritePostFragment fragment_write_post = new WritePostFragment();
     progress_Fragment fragment_progress = new progress_Fragment();
-
+    OnBackPressedListener listener;
+    ViewPager viewPager;
+    PagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +97,13 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
+
+//        viewPager = findViewById(R.id.viewPager);
+//        adapter = new PagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+//        adapter.addItem(fragment_experience);
+//        viewPager.setAdapter(adapter);
     }
+
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
         @Override
@@ -163,4 +177,22 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_main,fragment_write_post).commitAllowingStateLoss();
         }
     }
+
+
+    public void setOnBackPressedListener(OnBackPressedListener listener) {
+        this.listener = listener;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(listener!=null){
+            listener.onBackPressed();
+        }else{
+            super.onBackPressed();
+        }
+    }
+//
+//    public void setCurrentItem(){
+//        viewPager.setCurrentItem(0);
+//    }
 }

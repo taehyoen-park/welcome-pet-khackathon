@@ -20,6 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.auth.User;
 //import com.google.firebase.database.DatabaseReference;
 //import com.google.firebase.database.FirebaseDatabase;
 
@@ -35,8 +36,11 @@ public class Login extends AppCompatActivity {
     EditText et_id,et_pw;
     TextView join_tbtn, password_reset;
     Button login_btn;
+    //자동 로그인 변수
     CheckBox auto_check;
+    Boolean loginChecked;
     String loginId, loginPwd;
+    public SharedPreferences settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,15 @@ public class Login extends AppCompatActivity {
         loginId = sharedPreferences.getString("inputID",null);
         loginPwd = sharedPreferences.getString("inputPwd",null);
 
+        settings = getSharedPreferences("settings", Activity.MODE_PRIVATE);
+
+        loginChecked = settings.getBoolean("LoginChecked", false);
+        if(loginChecked){
+            et_id.setText(settings.getString("loginId",""));
+            et_pw.setText(settings.getString("loginPwd",""));
+            auto_check.setChecked(true);
+        }
+
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +87,8 @@ public class Login extends AppCompatActivity {
                             if(auto_check.isChecked()==true)
                             {
                                 Toast.makeText(Login.this,"체크박스 선택됨.",Toast.LENGTH_SHORT).show();
-                                
+                                loginId = str_id;
+                                loginPwd = str_pw;
                             }
                             Toast.makeText(Login.this,"로그인을 성공하셨습니다!",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -104,5 +118,25 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    //자동 로그인
+    public void onStop(){
+        super.onStop();
+        if(auto_check.isChecked()==true) {
+            settings = getSharedPreferences("settings",Activity.MODE_PRIVATE);
+            SharedPreferences.Editor editor = settings.edit();
+
+            editor.putString("loginId",loginId);
+            editor.putString("loginPwd",loginPwd);
+            editor.putBoolean("LoginChecked",true);
+
+            editor.commit();
+        }else{
+            settings = getSharedPreferences("settings", Activity.MODE_PRIVATE);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.clear();
+            editor.commit();
+        }
     }
 }

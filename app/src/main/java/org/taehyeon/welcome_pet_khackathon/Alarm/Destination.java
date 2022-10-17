@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -40,10 +42,12 @@ public class Destination extends AppCompatActivity {
     String[][] answer = {
             {"충분히 지불할 수 있어요!","잘 모르겠어요..","부담이 되고, 일상생활에 지장이 가요."},
             {"충분히 지불할 수 있어요!","잘 모르겠어요..","부담이 되고, 일상생활에 지장이 가요."},
-            {"지금 반려견을 훈련 시킬 수 있어요!","지금은 힘들지만 오늘 안에 가능해요.","감당하기 힘들거 같아요.."},
+            {"지금 반려견을 산책 시킬 수 있어요!","지금은 힘들지만 오늘 안에 가능해요.","감당하기 힘들거 같아요.."},
             {"지금 당장 집에 들어가야겠어요!","지금은 힘들고 이따가 돌볼래요.","생각치 못한 일이에요. 돌보기 힘들 것 같아요.."},
             {"지금 해결할 수 있어요!","지금은 너무 힘들어서 나중에 치울래요.","생각치 못한 일이에요. 감당하기 버거워요.."}
     };
+
+    int[] imgs = {R.drawable.sick_dog, R.drawable.money_dog, R.drawable.jogging_dog,R.drawable.lonely_dog, R.drawable.messy_dog};
 
 
 
@@ -58,6 +62,8 @@ public class Destination extends AppCompatActivity {
     RadioGroup group;
     TextView qus;
     Button ch_btn;
+    ImageView alarm_img;
+    ImageButton imageButton_home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,12 +76,23 @@ public class Destination extends AppCompatActivity {
         rb3 = findViewById(R.id.alarm_radioButton3);
         group = findViewById(R.id.alarm_radiogroup);
         qus = (TextView) findViewById(R.id.qus);
+        alarm_img = findViewById(R.id.imageView_alarm);
+        imageButton_home = findViewById(R.id.imageButton_home);
 
         group.setOnCheckedChangeListener(radioGroupButtonChangeListener);
         qus.setText(str);
         rb1.setText(an1);
         rb2.setText(an2);
         rb3.setText(an3);
+
+        imageButton_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         ch_btn.setOnClickListener(new View.OnClickListener() {

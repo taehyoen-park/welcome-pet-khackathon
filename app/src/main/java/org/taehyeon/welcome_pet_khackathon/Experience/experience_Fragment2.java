@@ -2,6 +2,7 @@ package org.taehyeon.welcome_pet_khackathon.Experience;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedDispatcherOwner;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -11,10 +12,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.taehyeon.welcome_pet_khackathon.MainActivity;
 import org.taehyeon.welcome_pet_khackathon.R;
 
 
-public class experience_Fragment2 extends Fragment {
+public class experience_Fragment2 extends Fragment  implements OnBackPressedListener{ //
 
     private View view;
     private TextView textView_exp;
@@ -23,6 +25,7 @@ public class experience_Fragment2 extends Fragment {
     private int num;
     Button button_ar;
     Button button_exp;
+    MainActivity activity;
 
 
     @Override
@@ -59,7 +62,8 @@ public class experience_Fragment2 extends Fragment {
                 button_ar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(getContext(),title+" AR로 보기",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"AR 화면으로 이동합니다.",Toast.LENGTH_SHORT).show();
+
                     }
                 });
                 button_exp.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +94,7 @@ public class experience_Fragment2 extends Fragment {
                 button_ar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(getContext(),title+"번째 AR로 보기",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"AR 화면으로 이동합니다.",Toast.LENGTH_SHORT).show();
                     }
                 });
                 button_exp.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +132,7 @@ public class experience_Fragment2 extends Fragment {
                 button_ar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(getContext(),title+"번째 AR로 보기",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"AR 화면으로 이동합니다.",Toast.LENGTH_SHORT).show();
                     }
                 });
                 button_exp.setOnClickListener(new View.OnClickListener() {
@@ -162,7 +166,7 @@ public class experience_Fragment2 extends Fragment {
                 button_ar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(getContext(),title+" AR로 보기",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"상위 3개의 정보 버튼만 활성화 되어있습니다. 3개 중 1개를 선택하세요.",Toast.LENGTH_SHORT).show();
                     }
                 });
                 button_exp.setOnClickListener(new View.OnClickListener() {
@@ -193,7 +197,7 @@ public class experience_Fragment2 extends Fragment {
                 button_ar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(getContext(),title+" AR로 보기",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"상위 3개의 정보 버튼만 활성화 되어있습니다. 3개 중 1개를 선택하세요.",Toast.LENGTH_SHORT).show();
                     }
                 });
                 button_exp.setOnClickListener(new View.OnClickListener() {
@@ -226,7 +230,7 @@ public class experience_Fragment2 extends Fragment {
                 button_ar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(getContext(),title+" AR로 보기",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"상위 3개의 정보 버튼만 활성화 되어있습니다. 3개 중 1개를 선택하세요.",Toast.LENGTH_SHORT).show();
                     }
                 });
                 button_exp.setOnClickListener(new View.OnClickListener() {
@@ -256,7 +260,7 @@ public class experience_Fragment2 extends Fragment {
                 button_ar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(getContext(),title+"번째 AR로 보기",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"상위 3개의 정보 버튼만 활성화 되어있습니다. 3개 중 1개를 선택하세요.",Toast.LENGTH_SHORT).show();
                     }
                 });
                 button_exp.setOnClickListener(new View.OnClickListener() {
@@ -286,7 +290,7 @@ public class experience_Fragment2 extends Fragment {
                 button_ar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(getContext(),title+" AR로 보기",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"상위 3개의 정보 버튼만 활성화 되어있습니다. 3개 중 1개를 선택하세요.",Toast.LENGTH_SHORT).show();
                     }
                 });
                 button_exp.setOnClickListener(new View.OnClickListener() {
@@ -305,7 +309,7 @@ public class experience_Fragment2 extends Fragment {
                 button_ar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(getContext(),title+" AR로 보기",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"상위 3개의 정보 버튼만 활성화 되어있습니다. 3개 중 1개를 선택하세요.",Toast.LENGTH_SHORT).show();
                     }
                 });
                 button_exp.setOnClickListener(new View.OnClickListener() {
@@ -334,7 +338,7 @@ public class experience_Fragment2 extends Fragment {
                 button_ar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(getContext()," AR로 보기",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"상위 3개의 정보 버튼만 활성화 되어있습니다. 3개 중 1개를 선택하세요.",Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -351,4 +355,14 @@ public class experience_Fragment2 extends Fragment {
         return "okay";
     }
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getContext(),"뒤로가기 눌림",Toast.LENGTH_SHORT).show();
+    }
+
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        activity.setOnBackPressedListener(this);
+//    }
 }

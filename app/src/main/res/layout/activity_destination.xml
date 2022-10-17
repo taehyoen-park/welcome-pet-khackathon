@@ -8,18 +8,27 @@
     android:orientation="vertical"
     tools:context=".Alarm.Destination">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font_outline"
+        android:layout_margin="10dp"
+        android:text="알람이 왔어요!"
+        android:textColor="#C852456A"
+        android:textSize="35dp"></TextView>
+
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="306dp"
-        android:layout_height="237dp"
-        android:layout_marginTop="25dp"
-        app:srcCompat="@drawable/dog" />
+        android:id="@+id/imageView_alarm"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/messy_dog" />
 
     <TextView
         android:id="@+id/text_now_time"
-        android:layout_width="177dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_margin="5dp"
         android:text="현재 시간 : " />
 
     <TextView
@@ -27,16 +36,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_margin="5dp"
         android:text="미지정"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black" />
+    <TextView
+        android:id="@+id/qus_d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:text="지금 상황에 맞는 답변을 아래 선택지 중 하나를 선택해주세요."
+        android:textColor="#807E7E" />
 
 
     <LinearLayout
         android:id="@+id/container"
-        android:layout_width="295dp"
-        android:layout_height="260dp"
-        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -111,12 +129,12 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp">
 
+
             <RadioButton
                 android:id="@+id/alarm_radioButton1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="미지정" />
-
 
             <RadioButton
                 android:id="@+id/alarm_radioButton2"
@@ -133,18 +151,20 @@
 
         <Button
             android:id="@+id/buttonClick"
-            android:layout_width="107dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="13dp"
             android:fontFamily="@font/font_outline"
             android:text="select"
+            android:textSize="20sp"
             app:backgroundTint="#86B8B4" />
 
         <ImageButton
             android:id="@+id/imageButton_home"
-            android:layout_width="38dp"
-            android:layout_height="41dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_gravity="right"
-            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/home"

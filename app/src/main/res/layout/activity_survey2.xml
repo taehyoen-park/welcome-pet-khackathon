@@ -8,15 +8,19 @@
     android:background="#fff"
     tools:context=".MainActivity">
 
+
     <TextView
-        android:layout_width="400dp"
+        android:id="@+id/textView_ddddog"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/font_outline"
         android:gravity="center"
         android:text="당신과 어울리는 강아지는?"
-        android:textColor="#FFB085"
-        android:textSize="20dp"></TextView>
+        android:textSize="30sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFB085" />
 
     <TextView
         android:id="@+id/spname"
