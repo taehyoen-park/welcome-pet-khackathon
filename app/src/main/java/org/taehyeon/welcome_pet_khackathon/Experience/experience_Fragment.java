@@ -55,6 +55,9 @@ public class experience_Fragment extends Fragment {
         ExperienceList.add(new Experience("유기견 입양 시 꼭 알아둬야할 내용"));
         ExperienceList.add(new Experience("강아지 당근 간식으로 좋은 음식일까?"));
         ExperienceList.add(new Experience("반려견 양치 주기, 입냄새 제거 방법은?"));
+
+
+
     }
 
     @Nullable
@@ -106,4 +109,6 @@ public class experience_Fragment extends Fragment {
 
         return v;
     }
+
+
 }

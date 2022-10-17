@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     WritePostFragment fragment_write_post = new WritePostFragment();
     progress_Fragment fragment_progress = new progress_Fragment();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
