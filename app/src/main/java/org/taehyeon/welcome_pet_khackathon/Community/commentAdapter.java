@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,19 +18,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.auth.User;
 
 import org.taehyeon.welcome_pet_khackathon.Auth.UserAccount;
-import org.taehyeon.welcome_pet_khackathon.Community.CustomDialog;
-import org.taehyeon.welcome_pet_khackathon.MainActivity;
 import org.taehyeon.welcome_pet_khackathon.R;
 
 import java.util.Calendar;
@@ -40,6 +35,7 @@ public class commentAdapter extends RecyclerView.Adapter<commentAdapter.MyHolder
     Context context;
     List<commentInfo> commentList;
     String myUid,postId;
+    Button btn;
 
     public commentAdapter(Context context, List<commentInfo> commentList, String myUid, String postId) {
         this.context = context;
@@ -66,6 +62,7 @@ public class commentAdapter extends RecyclerView.Adapter<commentAdapter.MyHolder
         final String cid = commentList.get(i).getcId();
         String comment = commentList.get(i).getComment();
         String time = commentList.get(i).getTimeStamp();
+        Button button_close;
 
         Calendar calendar = Calendar.getInstance(Locale.getDefault());
         calendar.setTimeInMillis(Long.parseLong(time));
@@ -96,7 +93,16 @@ public class commentAdapter extends RecyclerView.Adapter<commentAdapter.MyHolder
                                     UserAccount account = snapshot.getValue(UserAccount.class);
                                     if (account.getJob().equals("pro")) {
                                         Dialog dialog = new Dialog(v.getRootView().getContext());
-                                        dialog.setContentView(R.layout.activity_expert_user);
+                                        dialog.setContentView(R.layout.fragment_expert_user);
+                                        btn = dialog.findViewById(R.id.button_expert_ok);
+
+                                        btn.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
+                                                dialog.cancel();
+                                            }
+                                        });
+
                                         dialog.show();
                                     } else {
                                         Toast.makeText(context, "" + account.getJob(), Toast.LENGTH_SHORT).show();

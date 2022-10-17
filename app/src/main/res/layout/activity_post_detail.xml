@@ -32,7 +32,7 @@
                     android:padding="10dp">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="380dp"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
@@ -44,13 +44,13 @@
                             tools:src="@drawable/user" />
 
                         <LinearLayout
-                            android:layout_width="320dp"
+                            android:layout_width="306dp"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/Username_detail"
-                                android:layout_width="match_parent"
+                                android:layout_width="306dp"
                                 android:layout_height="wrap_content"
                                 android:hint="작성자"
                                 android:padding="3dp"
@@ -87,11 +87,11 @@
                         android:id="@+id/Content_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="contents"
-                        android:maxLength="100"
-                        android:padding="3dp"
                         android:autoLink="all"
-                        android:lines="10"/>
+                        android:hint="contents"
+                        android:lines="10"
+                        android:maxLength="100"
+                        android:padding="3dp" />
 
 
                     <LinearLayout
@@ -129,6 +129,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/comment_btn"
                     android:layout_width="30dp"
@@ -137,7 +138,6 @@
                     android:background="#fff"
                     android:scaleType="centerCrop"
                     android:src="@drawable/comment_img" />
-
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/likeBtn"
@@ -157,11 +157,19 @@
                 android:text="Comments"
                 android:textColor="#000" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:padding="2dp"
+                android:text="전문가 댓글을 길게 눌러 프로필을 확인해보세요!"
+                android:textSize="10sp" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/commentRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -174,10 +182,12 @@
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/cAvatarIv"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="37dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
             android:background="#fff"
             android:scaleType="centerCrop"
+            android:layout_marginTop="6dp"
             android:src="@drawable/user" />
 
         <EditText
