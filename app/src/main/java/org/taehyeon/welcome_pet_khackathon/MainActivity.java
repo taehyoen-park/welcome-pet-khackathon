@@ -2,6 +2,7 @@ package org.taehyeon.welcome_pet_khackathon;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent i = getIntent();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("WelcomePet").child("UserAccount");
@@ -50,24 +52,29 @@ public class MainActivity extends AppCompatActivity {
                 if(snapshot.getValue(String.class) != null) {
                     String str = snapshot.getValue(String.class);
                     if(str.equals("chx")){
-                        FragmentManager fragmentManager = getSupportFragmentManager();
-                        FragmentTransaction transaction = fragmentManager.beginTransaction();
-                        transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
+                        openFragment(fragment_home);
+                       // transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
                     }
                     else
                     {
-                        FragmentManager fragmentManager = getSupportFragmentManager();
-                        FragmentTransaction transaction = fragmentManager.beginTransaction();
-                        Intent i = getIntent();
-                        if(i == null){
-                            transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
+//                        FragmentManager fragmentManager = getSupportFragmentManager();
+//                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+                        if(i != null){
+                            String a = i.getStringExtra("val");
+                            if(a != null)
+                            {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("val",a);
+                                fragment_progress.setArguments(bundle);
+                            }
+
+                            openFragment(fragment_progress);
+                            //transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
                         }
                         else{
-                            String a = i.getStringExtra("val");
-                            Bundle bundle = new Bundle();
-                            bundle.putString("val",a);
-                            fragment_progress.setArguments(bundle);
-                            transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
+                            openFragment(fragment_progress);
+                            //transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
                         }
                     }
                 }
@@ -86,16 +93,18 @@ public class MainActivity extends AppCompatActivity {
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
+//            FragmentManager fragmentManager = getSupportFragmentManager();
+//            FragmentTransaction transaction = fragmentManager.beginTransaction();
             switch(menuItem.getItemId())
             {
                 case R.id.UserinfoItem:
-                    transaction.replace(R.id.frameLayout_main, fragment_userinfo).commitAllowingStateLoss();
+                    openFragment(fragment_userinfo);
+                    //transaction.replace(R.id.frameLayout_main, fragment_userinfo).addToBackStack(null).commitAllowingStateLoss();
                     break;
 
                 case R.id.experienceItem:
-                    transaction.replace(R.id.frameLayout_main, fragment_experience).addToBackStack(null).commitAllowingStateLoss();
+                    openFragment(fragment_experience);
+                    //transaction.replace(R.id.frameLayout_main, fragment_experience).addToBackStack(null).commitAllowingStateLoss();
                     break;
 
                 case R.id.HomeItem:
@@ -107,10 +116,12 @@ public class MainActivity extends AppCompatActivity {
                             if(snapshot.getValue(String.class) != null) {
                                 String str = snapshot.getValue(String.class);
                                 if(str.equals("chx")){
-                                    transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
+                                    openFragment(fragment_home);
+                                    //transaction.replace(R.id.frameLayout_main, fragment_home).addToBackStack(null).commitAllowingStateLoss();
                                 }
                                 else {
-                                    transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
+                                    openFragment(fragment_progress);
+                                    //transaction.replace(R.id.frameLayout_main, fragment_progress).addToBackStack(null).commitAllowingStateLoss();
                                 }
                             }
                         }
@@ -122,11 +133,13 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.CommunityItem:
-                    transaction.replace(R.id.frameLayout_main, fragment_community).commitAllowingStateLoss();
+                    openFragment(fragment_community);
+                    //transaction.replace(R.id.frameLayout_main, fragment_community).addToBackStack(null).commitAllowingStateLoss();
                     break;
 
                 case R.id.ShopItem:
-                    transaction.replace(R.id.frameLayout_main, fragment_shop).commitAllowingStateLoss();
+                    openFragment(fragment_shop);
+                    //transaction.replace(R.id.frameLayout_main, fragment_shop).addToBackStack(null).commitAllowingStateLoss();
                     break;
             }
             return true;
@@ -134,6 +147,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    private void openFragment(final Fragment fragment)   {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.frameLayout_main, fragment);
+        transaction.addToBackStack(null);
+        transaction.commitAllowingStateLoss();
+    }
 
     public void onFragmentChange(int index){
         if(index == 0){

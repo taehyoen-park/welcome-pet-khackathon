@@ -38,11 +38,16 @@ public class progress_Fragment extends Fragment {
         progress = (ProgressBar) v.findViewById(R.id.progressBar);
 
         Bundle bundle = getArguments();
-        if(p == 4)
+        if(bundle != null)
+        {
+            if(bundle.getString("val").equals("increse"))
+                increseProgress();
+        }
+
+        if(p == 5)
         {
             HashMap<String,Object> hashMap = new HashMap<>();
             hashMap.put("check","chx");
-
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference("WelcomePet").child("UserAccount");
             ref.child(user.getUid()).updateChildren(hashMap)
@@ -58,34 +63,12 @@ public class progress_Fragment extends Fragment {
                 }
             });
         }
-        else
-        {
-            if(bundle == null)
-                continueProgress();
-            else
-            {
-                String a = bundle.getString("val");
-                if(a != null){
-                    increseProgress();
-                }
-                else{
-                    continueProgress();
-                }
-            }
-        }
 
 
         return v;
     }
-
-    private void continueProgress() {
-        progress.setProgress(p);
-    }
-
     private void increseProgress() {
         p++;
         progress.setProgress(p);
     }
-
-
 }

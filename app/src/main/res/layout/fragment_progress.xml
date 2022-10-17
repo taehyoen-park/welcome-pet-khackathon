@@ -129,7 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:min="0"
-            android:max="4"
+            android:max="5"
             android:progress="0" />
 
     </LinearLayout>
