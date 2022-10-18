@@ -75,7 +75,8 @@ public class Userinput extends AppCompatActivity {
                                 account.setPw(str_PW);
                                 account.setCheck(c);
                                 account.setJob(c2);
-                                //account.setCount(1);
+                                account.setCount("0");
+                                account.setProgress("0");
 
                                 mdataRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
                                 Toast.makeText(Userinput.this,"회원가입에 성공하셨습니다.",Toast.LENGTH_SHORT).show();

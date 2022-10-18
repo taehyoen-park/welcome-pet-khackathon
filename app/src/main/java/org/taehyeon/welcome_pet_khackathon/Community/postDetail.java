@@ -139,8 +139,7 @@ public class postDetail extends AppCompatActivity {
         hashMap.put("uid",myUid);
         hashMap.put("Name",myName);
         //put this data in db
-        ref.child(timeStamp).setValue(hashMap)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
+        ref.child(timeStamp).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(postDetail.this, "Comment Add....", Toast.LENGTH_SHORT).show();
@@ -198,7 +197,6 @@ public class postDetail extends AppCompatActivity {
                     pDescription = ""+ds.child("contents").getValue();
                     pLikes = ""+ds.child("like").getValue();
                     pTimeStamp = ""+ds.child("time").getValue();
-                   // hisDp = ""+ds.child("uDp").getValue();
                     hisName = ""+ds.child("publisher").getValue();
                     hisUid= ""+ds.child("uid").getValue();
                     //String uEmail = ""+ds.child("uEmail").getValue();

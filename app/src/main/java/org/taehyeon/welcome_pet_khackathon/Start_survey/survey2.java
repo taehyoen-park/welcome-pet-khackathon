@@ -194,7 +194,7 @@ public class survey2 extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        //Toast.makeText(getApplicationContext(), "성공...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "체험을 시작합니다.", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
