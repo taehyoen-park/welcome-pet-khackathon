@@ -160,7 +160,15 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
-
+    public void onFragmentChange(int index){
+        if(index == 0){
+            openFragment(fragment_community);
+            //getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_main,fragment_community).commitAllowingStateLoss();
+        }else if(index == 1){
+            openFragment(fragment_write_post);
+            //getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_main,fragment_write_post).commitAllowingStateLoss();
+        }
+    }
 
     private void openFragment(final Fragment fragment)   {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -170,13 +178,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.commitAllowingStateLoss();
     }
 
-    public void onFragmentChange(int index){
-        if(index == 0){
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_main,fragment_community).commitAllowingStateLoss();
-        }else if(index == 1){
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_main,fragment_write_post).commitAllowingStateLoss();
-        }
-    }
+
 
 
     public void setOnBackPressedListener(OnBackPressedListener listener) {

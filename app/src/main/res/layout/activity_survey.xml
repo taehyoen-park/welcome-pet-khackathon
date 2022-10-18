@@ -14,7 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FEF1E6"
+            android:background="#dcefff"
             android:orientation="vertical">
 
 
@@ -35,7 +35,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="166dp"
                     android:layout_marginBottom="40dp"
-                    android:src="@drawable/corgi" />
+                    android:src="@drawable/huskyicon" />
 
                 <TextView
                     android:id="@+id/textView11"
@@ -47,7 +47,7 @@
                     android:gravity="center"
                     android:text="---설문조사---"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                    android:textColor="#FFB085" />
+                    android:textColor="#90AACB" />
             </RelativeLayout>
 
             <TextView
@@ -105,9 +105,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="8dp"
-                            android:max='20'
+                            android:max='5'
                             android:min='1'
-                            android:progress="10" />
+                            android:progress="3" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -165,9 +165,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="8dp"
-                            android:max='20'
+                            android:max='5'
                             android:min='1'
-                            android:progress="10"/>
+                            android:progress="3"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -225,9 +225,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="8dp"
-                            android:max='20'
+                            android:max='5'
                             android:min='1'
-                            android:progress="10"/>
+                            android:progress="3"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -286,9 +286,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="8dp"
-                            android:max='20'
+                            android:max='5'
                             android:min='1'
-                            android:progress="10"/>
+                            android:progress="3"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -347,9 +347,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="8dp"
-                            android:max='20'
+                            android:max='5'
                             android:min='1'
-                            android:progress="10"/>
+                            android:progress="3"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -672,7 +672,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/login_button_bk"
+                android:background="@drawable/register_button_bk"
                 android:fontFamily="@font/font_outline"
                 android:text="다음"
                 tools:layout_editor_absoluteX="229dp"
