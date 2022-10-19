@@ -150,7 +150,7 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/buttonClick"
+            android:id="@+id/button_alarm_Click"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="13dp"

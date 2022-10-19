@@ -11,8 +11,11 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -51,52 +54,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent i = getIntent();
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
+        bottomNavigationView.setSelectedItemId(R.id.HomeItem);
+
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("WelcomePet").child("UserAccount");
-        ref.child(user.getUid()).child("check").addValueEventListener(new ValueEventListener() {
+        ref.child(user.getUid()).child("check").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.getValue(String.class) != null) {
-                    String str = snapshot.getValue(String.class);
-                    if(str.equals("chx")){
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                } else {
+                    String str = String.valueOf(task.getResult().getValue());
+                    if (str.equals("chx")) {
                         openFragment(fragment_home);
-                       // transaction.replace(R.id.frameLayout_main, fragment_home).commitAllowingStateLoss();
-                    }
-                    else
-                    {
-//                        FragmentManager fragmentManager = getSupportFragmentManager();
-//                        FragmentTransaction transaction = fragmentManager.beginTransaction();
-
-                        if(i != null){
-                            String a = i.getStringExtra("val");
-                            if(a != null)
-                            {
-                                Bundle bundle = new Bundle();
-                                bundle.putString("val",a);
-                                fragment_progress.setArguments(bundle);
-                            }
-
-                            openFragment(fragment_progress);
-                            //transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
-                        }
-                        else{
-                            openFragment(fragment_progress);
-                            //transaction.replace(R.id.frameLayout_main, fragment_progress).commitAllowingStateLoss();
-                        }
+                        //bottomNavigationView.setItemIco;
+                    } else {
+                        //Intent i = getIntent();
+                        openFragment(fragment_progress);
                     }
                 }
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
         });
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
+
+
 
 //        viewPager = findViewById(R.id.viewPager);
 //        adapter = new PagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -110,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 //            FragmentManager fragmentManager = getSupportFragmentManager();
 //            FragmentTransaction transaction = fragmentManager.beginTransaction();
+
             switch(menuItem.getItemId())
             {
                 case R.id.UserinfoItem:
@@ -160,7 +145,15 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
-
+    public void onFragmentChange(int index){
+        if(index == 0){
+            openFragment(fragment_community);
+            //getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_main,fragment_community).commitAllowingStateLoss();
+        }else if(index == 1){
+            openFragment(fragment_write_post);
+            //getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_main,fragment_write_post).commitAllowingStateLoss();
+        }
+    }
 
     private void openFragment(final Fragment fragment)   {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -170,13 +163,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.commitAllowingStateLoss();
     }
 
-    public void onFragmentChange(int index){
-        if(index == 0){
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_main,fragment_community).commitAllowingStateLoss();
-        }else if(index == 1){
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_main,fragment_write_post).commitAllowingStateLoss();
-        }
-    }
+
 
 
     public void setOnBackPressedListener(OnBackPressedListener listener) {

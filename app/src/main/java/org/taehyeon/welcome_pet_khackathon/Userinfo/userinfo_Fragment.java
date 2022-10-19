@@ -73,13 +73,12 @@ public class userinfo_Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder dig = new AlertDialog.Builder(getContext());
-
                 dig.setTitle("공인인증하기");
                 dig.setMessage("공인인증을 하시겠습니까?\n(공인인증되는 직종 : 동물훈련전문가, 동물병원종사자, 반려동물관련 자격증 소유자).");
                 dig.setIcon(R.drawable.ic_launcher_foreground).setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(getContext(),"현재는 인증할 수 없습니다.",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getContext(),"현재는 인증할 수 없습니다.",Toast.LENGTH_SHORT).show();
 
                         HashMap<String,Object> hashMap = new HashMap<>();
                         hashMap.put("job","pro");
@@ -91,6 +90,7 @@ public class userinfo_Fragment extends Fragment {
                                     @Override
                                     public void onSuccess(Void aVoid) {
                                         Toast.makeText(getActivity(), "성공...", Toast.LENGTH_SHORT).show();
+                                        //userjob.setText("신분: 전문가");
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
@@ -126,6 +126,10 @@ public class userinfo_Fragment extends Fragment {
                     useremail.setText("이메일: "+account.getEmail());
                     username.setText("이름: "+account.getName());
                     userphone.setText("전화번호: "+account.getPhone());
+                    if(account.getJob().equals("pro"))
+                        userjob.setText("신분: 전문가");
+                    else
+                        userjob.setText("신분: 일반인");
                 } else {
                     Toast.makeText(getContext(), "데이터 없음...", Toast.LENGTH_SHORT).show();
                 }

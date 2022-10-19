@@ -86,11 +86,11 @@ public class Login extends AppCompatActivity {
                         {
                             if(auto_check.isChecked()==true)
                             {
-                                Toast.makeText(Login.this,"체크박스 선택됨.",Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Login.this,"체크박스 선택됨.",Toast.LENGTH_SHORT).show();
                                 loginId = str_id;
                                 loginPwd = str_pw;
                             }
-                            Toast.makeText(Login.this,"로그인을 성공하셨습니다!",Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(Login.this,"로그인을 성공하셨습니다!",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent);
                             finish();

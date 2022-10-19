@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -74,53 +79,51 @@ public class commentAdapter extends RecyclerView.Adapter<commentAdapter.MyHolder
         holder.avatarIv.setImageResource(R.drawable.user);
 
 
+        //아이템 길게 누를때
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
 
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Posts").child(postId).child("tcomments");
-                ref.child(cid).child("uid").addValueEventListener(new ValueEventListener()
-                {
+                ref.child(cid).child("uid").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot)
-                    {
-                        final String id = snapshot.getValue(String.class);
-                        DatabaseReference ref2 = FirebaseDatabase.getInstance().getReference("WelcomePet");
-                        ref2.child("UserAccount").child(id).addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if (snapshot.getValue(UserAccount.class) != null) {
-                                    UserAccount account = snapshot.getValue(UserAccount.class);
-                                    if (account.getJob().equals("pro")) {
-                                        Dialog dialog = new Dialog(v.getRootView().getContext());
-                                        dialog.setContentView(R.layout.fragment_expert_user);
-                                        btn = dialog.findViewById(R.id.button_expert_ok);
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e("firebase", "Error getting data", task.getException());
+                        }
+                        else {
+                            final String id = String.valueOf(task.getResult().getValue());
+                            DatabaseReference ref2 = FirebaseDatabase.getInstance().getReference("WelcomePet");
+                            ref2.child("UserAccount").child(id).child("job").get()
+                                .addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        if (!task.isSuccessful()) {
+                                            Log.e("firebase", "Error getting data", task.getException());
+                                        }
+                                        else {
+                                            String job = String.valueOf(task.getResult().getValue());
+                                            if (job.equals("pro")) {
+                                                Dialog dialog = new Dialog(v.getRootView().getContext());
+                                                dialog.setContentView(R.layout.fragment_expert_user);
+                                                btn = dialog.findViewById(R.id.button_expert_ok);
+                                                btn.setOnClickListener(new View.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(View view) {
+                                                        dialog.cancel();
+                                                    }
+                                                });
 
-                                        btn.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View view) {
-                                                dialog.cancel();
+                                                dialog.show();
+                                            } else {
+                                                //Toast.makeText(context, "Can't delete other's comment....", Toast.LENGTH_SHORT).show();
                                             }
-                                        });
-
-                                        dialog.show();
-                                    } else {
-                                        Toast.makeText(context, "" + account.getJob(), Toast.LENGTH_SHORT).show();
-                                        //Toast.makeText(context, "Can't delete other's comment....", Toast.LENGTH_SHORT).show();
+                                        }
                                     }
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-                            }
-                        });
+                                });
+                        }
                     }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) { }
                 });
-
-
                 return false;
             }
         });

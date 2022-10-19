@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,8 +28,11 @@ import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.taehyeon.welcome_pet_khackathon.Alarm.AlarmReciver;
 import org.taehyeon.welcome_pet_khackathon.Auth.Login;
@@ -161,12 +165,6 @@ public class survey2 extends AppCompatActivity {
             dogt.setText(husky);
         }
 
-//        binding.selectTimeBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //showTimePicker();
-//            }
-//        });
 
         binding.setAlarmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,6 +180,7 @@ public class survey2 extends AppCompatActivity {
                 cancelAlarm();
             }
         });
+
     }
 
     private void checkChange() {
@@ -194,7 +193,7 @@ public class survey2 extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        //Toast.makeText(getApplicationContext(), "성공...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "체험을 시작합니다.", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -204,15 +203,16 @@ public class survey2 extends AppCompatActivity {
         });
     }
 
-    private void cancelAlarm() {
+    private void cancelAlarm()
+    {
         Intent intent = new Intent(this,AlarmReciver.class);
-        pendingIntent = PendingIntent.getBroadcast(this,0,intent,PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+        pendingIntent = PendingIntent.getBroadcast(this,0,intent,
+                PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
         if (alarmManager == null){
             alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         }
         alarmManager.cancel(pendingIntent);
         Toast.makeText(this, "Alarm Cancelled", Toast.LENGTH_SHORT).show();
-
     }
 
 
