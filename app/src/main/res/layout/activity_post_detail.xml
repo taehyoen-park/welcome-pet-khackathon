@@ -94,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:autoLink="all"
                         android:hint="contents"
-                        android:lines="8"
+                        android:lines="6"
                         android:maxLength="200"
                         android:padding="3dp" />
 

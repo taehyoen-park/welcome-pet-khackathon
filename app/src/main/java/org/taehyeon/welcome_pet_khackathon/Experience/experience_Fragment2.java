@@ -40,12 +40,11 @@ public class experience_Fragment2 extends Fragment  implements OnBackPressedList
         button_ar = view.findViewById(R.id.button_info_ar);
         button_exp = view.findViewById(R.id.button_exp);
         textView = view.findViewById(R.id.textView_experience);
-
         if(getArguments()!=null)
         {
             name = getArguments().getString("name");
             //num = getArguments().getInt("index");
-            textView_exp.setText(name);
+            textView_exp.setText("<"+name+">");
             Experience_Index(name);
             //Toast.makeText(getContext(),num+"값이 넘어옴", Toast.LENGTH_SHORT).show();
         }
@@ -86,6 +85,7 @@ public class experience_Fragment2 extends Fragment  implements OnBackPressedList
                                 "- 동물 행동 전문가 최*호 훈련사 -\n"+
                                 "\n" +
                                 "\n");
+
                     }
                 });
                 break;
