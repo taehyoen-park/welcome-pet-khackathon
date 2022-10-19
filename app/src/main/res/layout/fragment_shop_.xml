@@ -19,7 +19,7 @@
             android:paddingTop="8dp"
             android:text=" AR 반려견 구매하기"
             android:textColor="#C852456A"
-            android:textSize="40dp"></TextView>
+            android:textSize="35dp"></TextView>
 
 
 
@@ -34,15 +34,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:padding="7dp"
-            android:text="나에게 맞는 AR 강아지로 바꿔서 체험해보세요! 더 재밌고 정확한 체험이 될 것 입니다!"
+            android:padding="8dp"
+            android:text="나에게 맞는 AR 강아지로 바꿔서 체험 해보세요! 더 재밌고 정확한 체험이 될 것 입니다!"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView18"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:padding="3dp"
             android:text="▼ 아래 자물쇠를 클릭하십시오."
             android:textSize="16sp" />

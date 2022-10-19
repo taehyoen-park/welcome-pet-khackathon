@@ -30,8 +30,8 @@
 
                 <ImageView
                     android:id="@+id/profile"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center"
                     tools:src="@drawable/user" />
 
@@ -44,14 +44,16 @@
                         android:id="@+id/Username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_1"
                         android:hint="작성자"
-                        android:padding="3dp"
-                        android:textSize="16sp" />
+                        android:padding="2dp"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/pTimeTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_1"
                         android:hint="작성 날짜"
                         android:padding="3dp"
                         android:textSize="10dp" />
@@ -63,14 +65,16 @@
                 android:id="@+id/Title2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/font_1"
                 android:hint="title"
                 android:padding="3dp"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/Content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/font_1"
                 android:hint="contents"
                 android:maxLength="100"
                 android:padding="3dp" />
@@ -88,11 +92,11 @@
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/comment_btn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginLeft="5dp"
-            android:background="#fff"
-            android:scaleType="centerCrop"
+            android:background="#f2f2f2"
+            android:scaleType="cenfterCrop"
             android:src="@drawable/comment_img" />
 
 
@@ -106,10 +110,10 @@
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/like_btn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
             android:layout_marginLeft="20dp"
-            android:background="#fff"
+            android:background="#f2f2f2"
             android:scaleType="centerCrop"
             android:src="@drawable/heart1" />
 

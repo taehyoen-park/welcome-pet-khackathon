@@ -7,7 +7,7 @@
         android:angle="45"
         android:centerX="35%"
         android:startColor="#FEF1E6"
-        android:endColor="#FFB085"
+        android:endColor="#ECB390"
         />
     <size
         android:width="182dp"
