@@ -54,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
+        bottomNavigationView.setSelectedItemId(R.id.HomeItem);
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -67,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     String str = String.valueOf(task.getResult().getValue());
                     if (str.equals("chx")) {
                         openFragment(fragment_home);
+                        //bottomNavigationView.setItemIco;
                     } else {
                         //Intent i = getIntent();
                         openFragment(fragment_progress);
@@ -76,8 +80,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
+
 
 //        viewPager = findViewById(R.id.viewPager);
 //        adapter = new PagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -91,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 //            FragmentManager fragmentManager = getSupportFragmentManager();
 //            FragmentTransaction transaction = fragmentManager.beginTransaction();
+
             switch(menuItem.getItemId())
             {
                 case R.id.UserinfoItem:

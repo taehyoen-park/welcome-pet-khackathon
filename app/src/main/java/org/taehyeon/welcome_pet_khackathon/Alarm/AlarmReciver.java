@@ -44,7 +44,7 @@ public class AlarmReciver extends BroadcastReceiver {
                             String job = "" + String.valueOf(task.getResult().getValue());
                             count = Integer.parseInt(job);
                             NotificationCompat.Builder builder = new NotificationCompat.Builder(context,"WelcomePet")
-                                    .setSmallIcon(R.drawable.ic_launcher_background)
+                                    .setSmallIcon(R.mipmap.ic_launcher)
                                     .setContentTitle("어서와,반려견은 처음이지?")
                                     .setContentText(count+"번째 타이틀")
                                     .setAutoCancel(true)

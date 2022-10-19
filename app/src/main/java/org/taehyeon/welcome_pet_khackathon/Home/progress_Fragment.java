@@ -32,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.taehyeon.welcome_pet_khackathon.Alarm.AlarmReciver;
 import org.taehyeon.welcome_pet_khackathon.Alarm.Destination;
+import org.taehyeon.welcome_pet_khackathon.MainActivity;
 import org.taehyeon.welcome_pet_khackathon.R;
 import org.taehyeon.welcome_pet_khackathon.Start_survey.survey2;
 
@@ -39,6 +40,8 @@ import java.util.HashMap;
 
 public class progress_Fragment extends Fragment {
 
+    public static AlarmManager alarmManager;
+    public static PendingIntent pendingIntent;
     survey2 activity = (survey2) getActivity();
     ProgressBar progress,progress2;
     TextView text_per;
@@ -75,15 +78,17 @@ public class progress_Fragment extends Fragment {
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("WelcomePet").child("UserAccount");
                                 ref.child(user.getUid()).updateChildren(hashMap)
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void unused) {
-                                                Toast.makeText(getActivity(),"체험이 종료되었습니다",Toast.LENGTH_SHORT).show();
-                                                progress.setProgress(0);
-                                                progress2.setProgress(0);
-                                                text_per.setText(""+0+"%");
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(getActivity(),"체험이 종료되었습니다",Toast.LENGTH_SHORT).show();
+                                            progress.setProgress(0);
+                                            progress2.setProgress(0);
+                                            text_per.setText(""+0+"%");
+
+
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
 
@@ -91,34 +96,53 @@ public class progress_Fragment extends Fragment {
                                 });
                             }
                             else{
-                                progress2.setProgress(p);
+                                progress2.setProgress(p,true);
                                 ref.child("UserAccount").child(user.getUid()).child("progress").get()
-                                        .addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                                if (!task.isSuccessful()) {
-                                                    Log.e("firebase", "Error getting data", task.getException());
-                                                }
-                                                else {
-                                                    String num = String.valueOf(task.getResult().getValue());
-                                                    int p = Integer.parseInt(num);
-                                                    progress.setProgress(p);
-                                                    text_per.setText(""+p+"%");
-                                                }
+                                    .addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                            if (!task.isSuccessful()) {
+                                                Log.e("firebase", "Error getting data", task.getException());
                                             }
-                                        });
+                                            else {
+                                                String num = String.valueOf(task.getResult().getValue());
+                                                int a = Integer.parseInt(num);
+                                                progress.setProgress(a,true);
+                                                text_per.setText(""+a+"%");
+                                            }
+                                        }
+                                    });
                             }
                         }
                     }
                 });
 
 
-
-
-
-
-
         return v;
+    }
+
+    private void setAlarm()
+    {
+        alarmManager = (AlarmManager) activity.getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        Intent intent4 = new Intent(activity.getApplicationContext(),AlarmReciver.class);
+        pendingIntent = PendingIntent.getBroadcast(activity.getApplicationContext(),0,intent4,
+                PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+
+    }
+
+    private void cancelAlarm() {
+        if (alarmManager == null){
+            alarmManager = (AlarmManager) activity.getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        }
+        Intent intent = new Intent(activity.getApplicationContext(),AlarmReciver.class);
+        pendingIntent = PendingIntent.getBroadcast(activity.getApplicationContext(),0,intent,
+                PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmManager.cancel(pendingIntent);
+        pendingIntent.cancel();
+        alarmManager = null;
+        pendingIntent = null;
+        Toast.makeText(getActivity(), "Alarm Cancelled", Toast.LENGTH_SHORT).show();
+
     }
 
 }
