@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/"
+    android:background="#fff"
     tools:context=".MainActivity">
 
 
@@ -27,7 +27,6 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_padding="2dp"
         android:layout_marginTop="5dp"
         android:gravity="center"
         android:fontFamily="@font/font_1"
